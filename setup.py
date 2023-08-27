@@ -20,5 +20,4 @@ setup(
     author = "Wanderson M. Pimenta",
     options = {'build_exe' : {'include_files' : files}},
     executables = [target]
-    
 )

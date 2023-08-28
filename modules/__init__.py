@@ -6,6 +6,8 @@ from modules.ui_beautify import UiBeautify
 from modules.ui_functions import UIFunctions
 from modules.app_functions import AppFunctions
 
+from widgets import VideoLoader
+
 
 class App(UiBeautify):
 
@@ -60,8 +62,9 @@ class App(UiBeautify):
         self.btn_load.clicked.connect(self.buttonClick)
         self.btn_exit.clicked.connect(lambda: self.close())
 
-        # HIDE BUTTONS
-        self.settingsTopBtn.setVisible(False)
+        # LOAD VIDEOS BUTTON CALL
+        video_loader = VideoLoader(self)  # Create an instance of VideoLoader
+        self.btn_loadVideos.clicked.connect(lambda: video_loader.load_videos())
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -74,6 +77,7 @@ class App(UiBeautify):
         def openCloseRightBox():
             UIFunctions.ex_toggleRightBox(self, True)
 
+        self.settingsTopBtn.setVisible(False)
         self.settingsTopBtn.clicked.connect(openCloseRightBox)
 
     # RESIZE EVENTS

@@ -2653,6 +2653,11 @@ border-radius: 5px;</string>
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_7">
+                             <item>
+                              <layout class="QGridLayout" name="video_preview"/>
+                             </item>
+                            </layout>
                            </widget>
                           </item>
                          </layout>

@@ -1386,6 +1386,13 @@ class Ui_MainWindow(object):
 "border-radius: 5px;")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.frame)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.video_preview = QGridLayout()
+        self.video_preview.setObjectName(u"video_preview")
+
+        self.horizontalLayout_7.addLayout(self.video_preview)
+
 
         self.verticalLayout_21.addWidget(self.frame)
 

@@ -44,7 +44,7 @@ class App(UiBeautify):
             AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
-        self.stackedWidget.setCurrentWidget(self.home)
+        self.stackedWidget.setCurrentWidget(self.page_home)
         self.btn_home.setStyleSheet(UIFunctions.selectMenu(self.btn_home.styleSheet()))
 
     def connect_events(self):
@@ -57,8 +57,8 @@ class App(UiBeautify):
         # LEFT MENUS
         self.btn_home.clicked.connect(self.buttonClick)
         self.btn_widgets.clicked.connect(self.buttonClick)
-        self.btn_new.clicked.connect(self.buttonClick)
-        self.btn_save.clicked.connect(self.buttonClick)
+        self.btn_load.clicked.connect(self.buttonClick)
+        self.btn_exit.clicked.connect(lambda: self.close())
 
         # HIDE BUTTONS
         self.settingsTopBtn.setVisible(False)
@@ -89,24 +89,22 @@ class App(UiBeautify):
 
         # SHOW HOME PAGE
         if btnName == "btn_home":
-            self.stackedWidget.setCurrentWidget(self.home)
+            self.stackedWidget.setCurrentWidget(self.page_home)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW WIDGETS PAGE
         if btnName == "btn_widgets":
-            self.stackedWidget.setCurrentWidget(self.widgets)
+            self.stackedWidget.setCurrentWidget(self.page_widgets)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW NEW PAGE
-        if btnName == "btn_new":
-            self.stackedWidget.setCurrentWidget(self.new_page)  # SET PAGE
-            UIFunctions.resetStyle(self, btnName)  # RESET ANOTHERS BUTTONS SELECTED
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
+        # SHOW LOAD VIDEO PAGE
+        if btnName == "btn_load":
+            self.stackedWidget.setCurrentWidget(self.page_loadVideos)
+            UIFunctions.resetStyle(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        if btnName == "btn_save":
-            print("Save BTN clicked!")
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

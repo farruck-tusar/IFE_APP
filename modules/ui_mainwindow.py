@@ -671,6 +671,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
+        self.btn_load = QPushButton(self.topMenu)
+        self.btn_load.setObjectName(u"btn_load")
+        sizePolicy.setHeightForWidth(self.btn_load.sizePolicy().hasHeightForWidth())
+        self.btn_load.setSizePolicy(sizePolicy)
+        self.btn_load.setMinimumSize(QSize(0, 45))
+        self.btn_load.setFont(font)
+        self.btn_load.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_load.setLayoutDirection(Qt.LeftToRight)
+        self.btn_load.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
+
+        self.verticalLayout_8.addWidget(self.btn_load)
+
         self.btn_widgets = QPushButton(self.topMenu)
         self.btn_widgets.setObjectName(u"btn_widgets")
         sizePolicy.setHeightForWidth(self.btn_widgets.sizePolicy().hasHeightForWidth())
@@ -682,30 +694,6 @@ class Ui_MainWindow(object):
         self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);")
 
         self.verticalLayout_8.addWidget(self.btn_widgets)
-
-        self.btn_new = QPushButton(self.topMenu)
-        self.btn_new.setObjectName(u"btn_new")
-        sizePolicy.setHeightForWidth(self.btn_new.sizePolicy().hasHeightForWidth())
-        self.btn_new.setSizePolicy(sizePolicy)
-        self.btn_new.setMinimumSize(QSize(0, 45))
-        self.btn_new.setFont(font)
-        self.btn_new.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_new.setLayoutDirection(Qt.LeftToRight)
-        self.btn_new.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_new)
-
-        self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_save")
-        sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
-        self.btn_save.setSizePolicy(sizePolicy)
-        self.btn_save.setMinimumSize(QSize(0, 45))
-        self.btn_save.setFont(font)
-        self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
-
-        self.verticalLayout_8.addWidget(self.btn_save)
 
         self.btn_exit = QPushButton(self.topMenu)
         self.btn_exit.setObjectName(u"btn_exit")
@@ -998,20 +986,20 @@ class Ui_MainWindow(object):
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
-        self.home = QWidget()
-        self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-image: url(:/images/images/images/bg_ife_black.png);\n"
+        self.page_home = QWidget()
+        self.page_home.setObjectName(u"page_home")
+        self.page_home.setStyleSheet(u"background-image: url(:/images/images/images/bg_ife_black.png);\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;")
-        self.stackedWidget.addWidget(self.home)
-        self.widgets = QWidget()
-        self.widgets.setObjectName(u"widgets")
-        self.widgets.setStyleSheet(u"b")
-        self.verticalLayout = QVBoxLayout(self.widgets)
+        self.stackedWidget.addWidget(self.page_home)
+        self.page_widgets = QWidget()
+        self.page_widgets.setObjectName(u"page_widgets")
+        self.page_widgets.setStyleSheet(u"b")
+        self.verticalLayout = QVBoxLayout(self.page_widgets)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(10, 10, 10, 10)
-        self.row_1 = QFrame(self.widgets)
+        self.row_1 = QFrame(self.page_widgets)
         self.row_1.setObjectName(u"row_1")
         self.row_1.setFrameShape(QFrame.StyledPanel)
         self.row_1.setFrameShadow(QFrame.Raised)
@@ -1094,7 +1082,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.row_1)
 
-        self.row_2 = QFrame(self.widgets)
+        self.row_2 = QFrame(self.page_widgets)
         self.row_2.setObjectName(u"row_2")
         self.row_2.setMinimumSize(QSize(0, 150))
         self.row_2.setFrameShape(QFrame.StyledPanel)
@@ -1145,7 +1133,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 347, 224))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 224, 224))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1212,7 +1200,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.row_2)
 
-        self.row_3 = QFrame(self.widgets)
+        self.row_3 = QFrame(self.page_widgets)
         self.row_3.setObjectName(u"row_3")
         self.row_3.setMinimumSize(QSize(0, 150))
         self.row_3.setFrameShape(QFrame.StyledPanel)
@@ -1347,18 +1335,64 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.row_3)
 
-        self.stackedWidget.addWidget(self.widgets)
-        self.new_page = QWidget()
-        self.new_page.setObjectName(u"new_page")
-        self.verticalLayout_20 = QVBoxLayout(self.new_page)
+        self.stackedWidget.addWidget(self.page_widgets)
+        self.page_loadVideos = QWidget()
+        self.page_loadVideos.setObjectName(u"page_loadVideos")
+        self.verticalLayout_20 = QVBoxLayout(self.page_loadVideos)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.label = QLabel(self.new_page)
-        self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignCenter)
+        self.frame_loadVertical = QFrame(self.page_loadVideos)
+        self.frame_loadVertical.setObjectName(u"frame_loadVertical")
+        self.frame_loadVertical.setFrameShape(QFrame.StyledPanel)
+        self.frame_loadVertical.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_21 = QVBoxLayout(self.frame_loadVertical)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.frame_loadHorizontal = QFrame(self.frame_loadVertical)
+        self.frame_loadHorizontal.setObjectName(u"frame_loadHorizontal")
+        self.frame_loadHorizontal.setMinimumSize(QSize(0, 40))
+        self.frame_loadHorizontal.setMaximumSize(QSize(16777215, 40))
+        self.frame_loadHorizontal.setFrameShape(QFrame.StyledPanel)
+        self.frame_loadHorizontal.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_loadHorizontal)
+#ifndef Q_OS_MAC
+        self.horizontalLayout_6.setSpacing(-1)
+#endif
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.load_directory = QLineEdit(self.frame_loadHorizontal)
+        self.load_directory.setObjectName(u"load_directory")
+        sizePolicy.setHeightForWidth(self.load_directory.sizePolicy().hasHeightForWidth())
+        self.load_directory.setSizePolicy(sizePolicy)
+        self.load_directory.setMinimumSize(QSize(150, 30))
+        self.load_directory.setStyleSheet(u"background-color: rgb(33, 37, 43);")
 
-        self.verticalLayout_20.addWidget(self.label)
+        self.horizontalLayout_6.addWidget(self.load_directory)
 
-        self.stackedWidget.addWidget(self.new_page)
+        self.btn_loadVideos = QPushButton(self.frame_loadHorizontal)
+        self.btn_loadVideos.setObjectName(u"btn_loadVideos")
+        self.btn_loadVideos.setMinimumSize(QSize(150, 30))
+        self.btn_loadVideos.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_loadVideos.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.btn_loadVideos.setIcon(icon4)
+
+        self.horizontalLayout_6.addWidget(self.btn_loadVideos)
+
+
+        self.verticalLayout_21.addWidget(self.frame_loadHorizontal)
+
+        self.frame = QFrame(self.frame_loadVertical)
+        self.frame.setObjectName(u"frame")
+        self.frame.setStyleSheet(u"border: 2px solid rgb(33, 37, 43);\n"
+"border-radius: 5px;")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_21.addWidget(self.frame)
+
+
+        self.verticalLayout_20.addWidget(self.frame_loadVertical)
+
+        self.stackedWidget.addWidget(self.page_loadVideos)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1512,9 +1546,8 @@ class Ui_MainWindow(object):
         self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Intelligent Frame Extractor", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
+        self.btn_load.setText(QCoreApplication.translate("MainWindow", u"Load Videos", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
-        self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
-        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
@@ -1605,7 +1638,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.label.setText(QCoreApplication.translate("MainWindow", u"NEW PAGE TEST", None))
+        self.load_directory.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Load videos here", None))
+        self.btn_loadVideos.setText(QCoreApplication.translate("MainWindow", u"Open Folder", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

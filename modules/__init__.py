@@ -62,7 +62,6 @@ class App(UiBeautify):
 
         # HIDE BUTTONS
         self.settingsTopBtn.setVisible(False)
-        self.toggleLeftBox.setVisible(False)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():

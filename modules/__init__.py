@@ -19,8 +19,8 @@ class App(UiBeautify):
         Settings.ENABLE_CUSTOM_TITLE_BAR = False
 
         # APP NAME
-        title = "PyDracula - Modern GUI"
-        description = "PyDracula APP - Theme with colors based on Dracula for Python."
+        title = "IFE Application"
+        description = "IFE APPLICATION"
 
         # APPLY TEXTS
         self.setWindowTitle(title)
@@ -33,7 +33,7 @@ class App(UiBeautify):
 
         # SET CUSTOM THEME
         useCustomTheme = False
-        themeFile = "themes/py_dracula_light.qss"
+        themeFile = "themes/theme_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -59,6 +59,10 @@ class App(UiBeautify):
         self.btn_widgets.clicked.connect(self.buttonClick)
         self.btn_new.clicked.connect(self.buttonClick)
         self.btn_save.clicked.connect(self.buttonClick)
+
+        # HIDE BUTTONS
+        self.settingsTopBtn.setVisible(False)
+        self.toggleLeftBox.setVisible(False)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():

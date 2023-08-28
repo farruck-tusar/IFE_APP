@@ -1,7 +1,8 @@
 <RCC>
   <qresource prefix="images">
-    <file>images/images/PyDracula.png</file>
-    <file>images/images/PyDracula_vertical.png</file>
+    <file>images/images/logo_ife_white.png</file>
+    <file>images/images/logo_ife_black.png</file>
+    <file>images/images/bg_ife_black.png</file>
   </qresource>
   <qresource prefix="icons">
     <file>images/icons/cil-3d.png</file>

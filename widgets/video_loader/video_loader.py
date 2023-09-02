@@ -6,6 +6,7 @@ from PySide6.QtCore import QDir
 from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import QWidget, QFileDialog, QHBoxLayout
 from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
+from widgets.video_loader.video_player import VideoPlayer
 
 
 class VideoLoader(QWidget):
@@ -66,6 +67,7 @@ class VideoLoader(QWidget):
                 )
 
                 thumbnail_widget.setPixmap(pixmap)
+                thumbnail_widget.mousePressEvent = lambda event, path=video_path: self.open_video_player(path)
                 thumbnail_layout.addWidget(thumbnail_widget)
 
             capture.release()
@@ -80,3 +82,8 @@ class VideoLoader(QWidget):
                 if widget:
                     widget.hide()
                     self.video_preview_grid.removeItem(item)
+
+    def open_video_player(self, video_path):
+        player_widget = VideoPlayer(video_path, self)
+        self.main_ui.stackedWidget.addWidget(player_widget)
+        self.main_ui.stackedWidget.setCurrentWidget(player_widget)

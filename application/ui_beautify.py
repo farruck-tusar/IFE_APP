@@ -3,7 +3,7 @@ from abc import abstractmethod
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow
 
-from modules import Ui_MainWindow
+from application import Ui_MainWindow
 
 
 class UiBeautify(Ui_MainWindow, QMainWindow):

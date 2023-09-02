@@ -2,7 +2,7 @@ from PySide6.QtCore import QPropertyAnimation, QEasingCurve, QParallelAnimationG
 from PySide6.QtGui import QIcon, QColor
 from PySide6.QtWidgets import QPushButton, QGraphicsDropShadowEffect, QSizeGrip
 
-from modules import UiBeautify, Settings
+from application import UiBeautify, Settings
 from widgets.custom_grips import CustomGrip
 
 # GLOBALS
@@ -20,7 +20,7 @@ class UIFunctions(UiBeautify):
             GLOBAL_STATE = True
             self.appMargins.setContentsMargins(0, 0, 0, 0)
             self.maximizeRestoreAppBtn.setToolTip("Restore")
-            self.maximizeRestoreAppBtn.setIcon(QIcon(u":/icons/images/icons/icon_restore.png"))
+            self.maximizeRestoreAppBtn.setIcon(QIcon(u":/icons/resources/icons/icon_restore.png"))
             self.frame_size_grip.hide()
             self.left_grip.hide()
             self.right_grip.hide()
@@ -32,7 +32,7 @@ class UIFunctions(UiBeautify):
             self.resize(self.width() + 1, self.height() + 1)
             self.appMargins.setContentsMargins(10, 10, 10, 10)
             self.maximizeRestoreAppBtn.setToolTip("Maximize")
-            self.maximizeRestoreAppBtn.setIcon(QIcon(u":/icons/images/icons/icon_maximize.png"))
+            self.maximizeRestoreAppBtn.setIcon(QIcon(u":/icons/resources/icons/icon_maximize.png"))
             self.frame_size_grip.show()
             self.left_grip.show()
             self.right_grip.show()

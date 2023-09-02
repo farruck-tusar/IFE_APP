@@ -1,10 +1,10 @@
 from PySide6.QtWidgets import QHeaderView
 
-from modules.app_settings import Settings
-from modules.ui_mainwindow import Ui_MainWindow
-from modules.ui_beautify import UiBeautify
-from modules.ui_functions import UIFunctions
-from modules.app_functions import AppFunctions
+from application.app_settings import Settings
+from mainwindow import Ui_MainWindow
+from application.ui_beautify import UiBeautify
+from application.ui_functions import UIFunctions
+from application.app_functions import AppFunctions
 
 from widgets import VideoLoader
 
@@ -30,17 +30,17 @@ class App(UiBeautify):
         self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
         self.connect_events()
 
-        # show app ui
+        # SHOW APP UI
         self.show()
 
         # SET CUSTOM THEME
         useCustomTheme = False
-        themeFile = "themes/theme_light.qss"
+        themeFileLight = "resources/themes/theme_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
             # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+            UIFunctions.theme(self, themeFileLight, True)
 
             # SET HACKS
             AppFunctions.setThemeHack(self)

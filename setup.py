@@ -9,7 +9,7 @@ files = ['icon.ico','themes/']
 target = Executable(
     script="main.py",
     base="Win32GUI",
-    icon="icon.ico"
+    icon="resources/icon.ico"
 )
 
 # SETUP CX FREEZE

@@ -72,7 +72,7 @@ Left Menu */
 }
 #topLogo {
 	background-color: rgb(33, 37, 43);
-	background-image: url(:/images/images/images/logo_ife_white.png);
+	background-image: url(:/images/resources/images/logo_ife_white.png);
 	background-position: centered;
 	background-repeat: no-repeat;
 }
@@ -150,7 +150,7 @@ Extra Tab */
 #extraIcon {
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url(:/icons/images/icons/icon_settings.png);
+	background-image: url(:/icons/resources/icons/icon_settings.png);
 }
 
 /* Label */
@@ -399,7 +399,7 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background: 3px solid rgb(52, 59, 72);
 	border: 3px solid rgb(52, 59, 72);	
-	background-image: url(:/icons/images/icons/cil-check-alt.png);
+	background-image: url(:/icons/resources/icons/cil-check-alt.png);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -440,7 +440,7 @@ QComboBox::drop-down {
 	border-left-style: solid;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;	
-	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+	background-image: url(:/icons/resources/icons/cil-arrow-bottom.png);
 	background-position: center;
 	background-repeat: no-reperat;
  }
@@ -807,7 +807,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);</string>
+                   <string notr="true">background-image: url(:/icons/resources/icons/icon_menu.png);</string>
                   </property>
                   <property name="text">
                    <string>Hide</string>
@@ -870,7 +870,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);</string>
+                   <string notr="true">background-image: url(:/icons/resources/icons/cil-home.png);</string>
                   </property>
                   <property name="text">
                    <string>Home</string>
@@ -906,7 +906,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-file.png);</string>
+                   <string notr="true">background-image: url(:/icons/resources/icons/cil-file.png);</string>
                   </property>
                   <property name="text">
                    <string>Load Videos</string>
@@ -942,7 +942,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/resources/icons/cil-gamepad.png);</string>
                   </property>
                   <property name="text">
                    <string>Widgets</string>
@@ -978,7 +978,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-x.png);</string>
+                   <string notr="true">background-image: url(:/icons/resources/icons/cil-x.png);</string>
                   </property>
                   <property name="text">
                    <string>Exit</string>
@@ -1041,7 +1041,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_settings.png);</string>
+                   <string notr="true">background-image: url(:/icons/resources/icons/icon_settings.png);</string>
                   </property>
                   <property name="text">
                    <string>Settings</string>
@@ -1203,7 +1203,7 @@ Button */
                  </property>
                  <property name="icon">
                   <iconset resource="resources.qrc">
-                   <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
+                   <normaloff>:/icons/resources/icons/icon_close.png</normaloff>:/icons/resources/icons/icon_close.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1474,7 +1474,7 @@ Button */
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_settings.png</normaloff>:/icons/images/icons/icon_settings.png</iconset>
+                    <normaloff>:/icons/resources/icons/icon_settings.png</normaloff>:/icons/resources/icons/icon_settings.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1509,7 +1509,7 @@ Button */
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_minimize.png</normaloff>:/icons/images/icons/icon_minimize.png</iconset>
+                    <normaloff>:/icons/resources/icons/icon_minimize.png</normaloff>:/icons/resources/icons/icon_minimize.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1553,7 +1553,7 @@ Button */
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_maximize.png</normaloff>:/icons/images/icons/icon_maximize.png</iconset>
+                    <normaloff>:/icons/resources/icons/icon_maximize.png</normaloff>:/icons/resources/icons/icon_maximize.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1588,7 +1588,7 @@ Button */
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
+                    <normaloff>:/icons/resources/icons/icon_close.png</normaloff>:/icons/resources/icons/icon_close.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1685,11 +1685,11 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="page_home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/images/images/bg_ife_black.png);
+                       <string notr="true">background-image: url(:/images/resources/images/bg_ife_black.png);
 background-position: center;
 background-repeat: no-repeat;</string>
                       </property>
@@ -1870,7 +1870,7 @@ background-repeat: no-repeat;</string>
                                     </property>
                                     <property name="icon">
                                      <iconset resource="resources.qrc">
-                                      <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
+                                      <normaloff>:/icons/resources/icons/cil-folder-open.png</normaloff>:/icons/resources/icons/cil-folder-open.png</iconset>
                                     </property>
                                    </widget>
                                   </item>
@@ -2092,7 +2092,7 @@ background-repeat: no-repeat;</string>
                               </property>
                               <property name="icon">
                                <iconset resource="resources.qrc">
-                                <normaloff>:/icons/images/icons/cil-link.png</normaloff>:/icons/images/icons/cil-link.png</iconset>
+                                <normaloff>:/icons/resources/icons/cil-link.png</normaloff>:/icons/resources/icons/cil-link.png</iconset>
                               </property>
                               <property name="description">
                                <string>Link description</string>
@@ -2634,7 +2634,7 @@ background-repeat: no-repeat;</string>
                                </property>
                                <property name="icon">
                                 <iconset resource="resources.qrc">
-                                 <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
+                                 <normaloff>:/icons/resources/icons/cil-folder-open.png</normaloff>:/icons/resources/icons/cil-folder-open.png</iconset>
                                </property>
                               </widget>
                              </item>
@@ -2799,7 +2799,7 @@ border-radius: 5px;</string>
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-open.png);</string>
+                            <string notr="true">background-image: url(:/icons/resources/icons/cil-envelope-open.png);</string>
                            </property>
                            <property name="text">
                             <string>Message</string>
@@ -2835,7 +2835,7 @@ border-radius: 5px;</string>
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-print.png);</string>
+                            <string notr="true">background-image: url(:/icons/resources/icons/cil-print.png);</string>
                            </property>
                            <property name="text">
                             <string>Print</string>
@@ -2871,7 +2871,7 @@ border-radius: 5px;</string>
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png);</string>
+                            <string notr="true">background-image: url(:/icons/resources/icons/cil-account-logout.png);</string>
                            </property>
                            <property name="text">
                             <string>Logout</string>
@@ -2943,7 +2943,7 @@ border-radius: 5px;</string>
                    </font>
                   </property>
                   <property name="text">
-                   <string>Developed by the Chair of Computer Engineering, TU Chemnitz</string>
+                   <string>Developed by the Chair of Computer Engineering, TU Chemnitz.</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2995,6 +2995,16 @@ border-radius: 5px;</string>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>24</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources>

@@ -5,8 +5,8 @@ from PySide6 import QtWidgets, QtCore
 from PySide6.QtCore import QDir
 from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import QWidget, QFileDialog, QHBoxLayout
-from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
-from widgets.video_loader.video_player import VideoPlayer
+from widgets.video_function.dialog_videoSelection import VideoSelectionDialog
+from widgets.video_function.video_player import VideoPlayer
 
 
 class VideoLoader(QWidget):

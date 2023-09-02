@@ -40,7 +40,7 @@ Left Menu */
 }
 #topLogo {
 	background-color: rgb(33, 37, 43);
-	background-image: url(:/images/images/images/logo_ife_white.png);
+	background-image: url(:/images/resources/images/logo_ife_white.png);
 	background-position: centered;
 	background-repeat: no-repeat;
 }
@@ -118,7 +118,7 @@ Extra Tab */
 #extraIcon {
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url(:/icons/images/icons/icon_settings.png);
+	background-image: url(:/icons/resources/icons/icon_settings.png);
 }
 
 /* Label */
@@ -367,7 +367,7 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background: 3px solid rgb(52, 59, 72);
 	border: 3px solid rgb(52, 59, 72);
-	background-image: url(:/icons/images/icons/cil-check-alt.png);
+	background-image: url(:/icons/resources/icons/cil-check-alt.png);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -408,7 +408,7 @@ QComboBox::drop-down {
 	border-left-style: solid;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
-	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+	background-image: url(:/icons/resources/icons/cil-arrow-bottom.png);
 	background-position: center;
 	background-repeat: no-reperat;
  }

@@ -1,4 +1,4 @@
-from modules import UiBeautify, Settings
+from application import UiBeautify, Settings
 
 
 class AppFunctions(UiBeautify):

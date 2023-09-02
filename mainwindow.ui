@@ -2996,16 +2996,6 @@ border-radius: 5px;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1280</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <resources>
   <include location="resources.qrc"/>

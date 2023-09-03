@@ -516,3 +516,10 @@ Button */
 	background-color: #546391;
 	border: 2px solid #ff79c6;
 }
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+stackedWidget */
+#frame_preview {
+	border: 2px solid rgb(33, 37, 43);
+	border-radius: 5px;
+}

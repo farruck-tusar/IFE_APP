@@ -553,6 +553,14 @@ class Ui_MainWindow(object):
 "#pagesContainer QPushButton:pressed {	\n"
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
+"}\n"
+"\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"stackedWidget */\n"
+"#frame_preview {\n"
+"	border: 2px solid rgb(33, 37, "
+                        "43);\n"
+"	border-radius: 5px;\n"
 "}")
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
@@ -1379,21 +1387,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_21.addWidget(self.frame_loadHorizontal)
 
-        self.frame = QFrame(self.frame_loadVertical)
-        self.frame.setObjectName(u"frame")
-        self.frame.setStyleSheet(u"border: 2px solid rgb(33, 37, 43);\n"
-"border-radius: 5px;")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_7 = QHBoxLayout(self.frame)
+        self.frame_preview = QFrame(self.frame_loadVertical)
+        self.frame_preview.setObjectName(u"frame_preview")
+        self.frame_preview.setStyleSheet(u"")
+        self.frame_preview.setFrameShape(QFrame.StyledPanel)
+        self.frame_preview.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.frame_preview)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.video_preview = QGridLayout()
         self.video_preview.setObjectName(u"video_preview")
 
         self.horizontalLayout_7.addLayout(self.video_preview)
 
 
-        self.verticalLayout_21.addWidget(self.frame)
+        self.verticalLayout_21.addWidget(self.frame_preview)
 
 
         self.verticalLayout_20.addWidget(self.frame_loadVertical)
@@ -1540,7 +1548,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

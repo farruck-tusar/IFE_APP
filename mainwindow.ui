@@ -531,6 +531,13 @@ Button */
 #pagesContainer QPushButton:pressed {	
 	background-color: rgb(35, 40, 49);
 	border: 2px solid rgb(43, 50, 61);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+stackedWidget */
+#frame_preview {
+	border: 2px solid rgb(33, 37, 43);
+	border-radius: 5px;
 }</string>
    </property>
    <layout class="QVBoxLayout" name="appMargins">
@@ -1685,7 +1692,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="page_home">
                       <property name="styleSheet">
@@ -2642,10 +2649,9 @@ background-repeat: no-repeat;</string>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QFrame" name="frame">
+                           <widget class="QFrame" name="frame_preview">
                             <property name="styleSheet">
-                             <string notr="true">border: 2px solid rgb(33, 37, 43);
-border-radius: 5px;</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -2654,6 +2660,18 @@ border-radius: 5px;</string>
                              <enum>QFrame::Raised</enum>
                             </property>
                             <layout class="QHBoxLayout" name="horizontalLayout_7">
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
                              <item>
                               <layout class="QGridLayout" name="video_preview"/>
                              </item>

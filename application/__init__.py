@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QHeaderView
 
-from application.app_settings import Settings
 from mainwindow import Ui_MainWindow
+from application.app_settings import Settings
 from application.ui_beautify import UiBeautify
 from application.ui_functions import UIFunctions
 from application.app_functions import AppFunctions

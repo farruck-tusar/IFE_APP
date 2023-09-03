@@ -500,3 +500,10 @@ Button */
 	background-color: rgb(35, 40, 49);
 	border: 2px solid rgb(43, 50, 61);
 }
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+stackedWidget */
+#frame_preview {
+	border: 2px solid rgb(33, 37, 43);
+	border-radius: 5px;
+}

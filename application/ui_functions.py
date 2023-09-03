@@ -3,7 +3,7 @@ from PySide6.QtGui import QIcon, QColor
 from PySide6.QtWidgets import QPushButton, QGraphicsDropShadowEffect, QSizeGrip
 
 from application import UiBeautify, Settings
-from widgets.custom_grips import CustomGrip
+from widgets import CustomGrip
 
 # GLOBALS
 GLOBAL_STATE = False

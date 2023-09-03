@@ -1,2 +1,0 @@
-from widgets.video_function.video_loader import VideoLoader
-from widgets.video_function.video_player import VideoPlayer

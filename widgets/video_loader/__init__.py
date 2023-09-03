@@ -5,8 +5,8 @@ from PySide6 import QtWidgets, QtCore
 from PySide6.QtCore import QDir
 from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import QWidget, QFileDialog, QHBoxLayout
-from widgets.video_function.dialog_videoSelection import VideoSelectionDialog
-from widgets.video_function.video_player import VideoPlayer
+from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
+from widgets.video_player import VideoPlayer
 
 
 class VideoLoader(QWidget):
@@ -84,6 +84,6 @@ class VideoLoader(QWidget):
                     self.video_preview_grid.removeItem(item)
 
     def open_video_player(self, video_path):
-        player_widget = VideoPlayer(video_path, self)
+        player_widget = VideoPlayer(video_path)
         self.main_ui.stackedWidget.addWidget(player_widget)
         self.main_ui.stackedWidget.setCurrentWidget(player_widget)

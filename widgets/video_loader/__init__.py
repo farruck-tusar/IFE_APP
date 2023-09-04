@@ -4,7 +4,7 @@ import cv2
 from PySide6 import QtWidgets, QtCore
 from PySide6.QtCore import QDir
 from PySide6.QtGui import QImage, QPixmap
-from PySide6.QtWidgets import QWidget, QFileDialog, QHBoxLayout
+from PySide6.QtWidgets import QWidget, QFileDialog, QVBoxLayout
 from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
 from widgets.video_player import VideoPlayer
 
@@ -35,7 +35,8 @@ class VideoLoader(QWidget):
     def update_video_preview_grid(self):
         self.clear_video_preview_grid()
         thumbnail_container = QtWidgets.QWidget()
-        thumbnail_layout = QHBoxLayout(thumbnail_container)
+        thumbnail_layout = QVBoxLayout(thumbnail_container)
+        thumbnail_container.setStyleSheet("border: 2px solid rgb(33, 37, 43); border-radius: 5px;")
 
         for video_filename in self.selected_videos:
             video_path = os.path.join(self.main_ui.load_directory.text(), video_filename)
@@ -68,6 +69,12 @@ class VideoLoader(QWidget):
 
                 thumbnail_widget.setPixmap(pixmap)
                 thumbnail_widget.mousePressEvent = lambda event, path=video_path: self.open_video_player(path)
+
+                video_label = QtWidgets.QLabel()
+                video_label.setText(video_filename)
+                video_label.setMaximumSize(150, 30)
+
+                thumbnail_layout.addWidget(video_label)
                 thumbnail_layout.addWidget(thumbnail_widget)
 
             capture.release()

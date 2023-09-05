@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QHeaderView
+from PySide6.QtWidgets import QHeaderView, QMessageBox
 
 from mainwindow import Ui_MainWindow
 from application.app_settings import Settings
@@ -60,7 +60,7 @@ class App(UiBeautify):
         self.btn_home.clicked.connect(self.buttonClick)
         self.btn_widgets.clicked.connect(self.buttonClick)
         self.btn_load.clicked.connect(self.buttonClick)
-        self.btn_exit.clicked.connect(lambda: self.close())
+        self.btn_exit.clicked.connect(lambda: self.quitApplication())
 
         # LOAD VIDEOS BUTTON CALL
         video_loader = VideoLoader(self)  # Create an instance of VideoLoader
@@ -109,6 +109,17 @@ class App(UiBeautify):
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
+
+    def quitApplication(self):
+        reply = QMessageBox.question(
+            self,
+            "Confirmation",
+            "Are you sure you want to quit?",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No,
+        )
+
+        if reply == QMessageBox.Yes:
+            self.close()

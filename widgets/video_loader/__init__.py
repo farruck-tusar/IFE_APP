@@ -91,6 +91,6 @@ class VideoLoader(QWidget):
                     self.video_preview_grid.removeItem(item)
 
     def open_video_player(self, video_path):
-        player_widget = VideoPlayer(video_path)
+        player_widget = VideoPlayer(self.main_ui, video_path)
         self.main_ui.stackedWidget.addWidget(player_widget)
         self.main_ui.stackedWidget.setCurrentWidget(player_widget)

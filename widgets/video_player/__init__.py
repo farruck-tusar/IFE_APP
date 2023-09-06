@@ -10,10 +10,14 @@ from widgets.video_player.ui_video_player import Ui_videoPlayer
 
 
 class VideoPlayer(Ui_videoPlayer, QWidget):
-    def __init__(self, video_path):
-        super().__init__()
+    def __init__(self, main_ui, video_path):
+        super().__init__(main_ui)
+
+        self.main_ui = main_ui
         self.ui = Ui_videoPlayer()
         self.ui.setupUi(self)
+
+        self.ui.btn_back.clicked.connect(lambda: self.main_ui.stackedWidget.setCurrentWidget(self.main_ui.page_loadVideos))
 
         # Use ffmpeg to probe the video file
         probe = ffmpeg.probe(video_path, v="error", select_streams="v:0", show_entries="stream=codec_name")
@@ -22,7 +26,6 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         # Check if the video codec is compatible with hardware acceleration
         supported_codecs = ['h264', 'hevc']  # Add more if needed
         if video_codec.lower() not in supported_codecs:
-            self.hide()
             print(f"Unsupported video codec: {video_codec}")
             return
 

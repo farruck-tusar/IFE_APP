@@ -57,7 +57,31 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QFrame" name="frame">
+       <widget class="QPushButton" name="btn_back">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin: 10px 0px 0px 10px;
+padding: 5px;</string>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../resources.qrc">
+          <normaloff>:/icons/resources/icons/cil-arrow-circle-left.png</normaloff>:/icons/resources/icons/cil-arrow-circle-left.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_video">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -71,6 +95,18 @@
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QFrame" name="frame_player">
            <property name="sizePolicy">
@@ -88,7 +124,7 @@
           </widget>
          </item>
          <item alignment="Qt::AlignHCenter">
-          <widget class="QFrame" name="frame_7">
+          <widget class="QFrame" name="frame_zoom">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>1</horstretch>
@@ -103,14 +139,14 @@
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item alignment="Qt::AlignHCenter">
-             <widget class="QSlider" name="verticalSlider">
+             <widget class="QSlider" name="slider_zoom">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
              </widget>
             </item>
             <item alignment="Qt::AlignHCenter">
-             <widget class="QLabel" name="label_3">
+             <widget class="QLabel" name="label_zoom">
               <property name="text">
                <string>1,0 x</string>
               </property>
@@ -123,7 +159,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="frame_2">
+       <widget class="QFrame" name="frame_time_heatmap">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -138,7 +174,7 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QFrame" name="frame_4">
+          <widget class="QFrame" name="frame_time">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
@@ -147,7 +183,7 @@
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <widget class="QSlider" name="horizontalSlider">
+             <widget class="QSlider" name="slider_time">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>8</horstretch>
@@ -160,7 +196,7 @@
              </widget>
             </item>
             <item alignment="Qt::AlignVCenter">
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="label_time">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>2</horstretch>
@@ -176,7 +212,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QFrame" name="frame_5">
+          <widget class="QFrame" name="frame_heatmap">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
@@ -185,7 +221,7 @@
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QSlider" name="horizontalSlider_2">
+             <widget class="QSlider" name="slider_heatmap">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>8</horstretch>
@@ -198,7 +234,7 @@
              </widget>
             </item>
             <item alignment="Qt::AlignVCenter">
-             <widget class="QLabel" name="label_2">
+             <widget class="QLabel" name="label_heatmap">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>2</horstretch>
@@ -217,7 +253,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="frame_3">
+       <widget class="QFrame" name="frame_nav_buttons">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -292,6 +328,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

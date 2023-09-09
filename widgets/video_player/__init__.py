@@ -5,7 +5,7 @@ import ffmpeg
 from PySide6.QtCore import Slot
 from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
-from PySide6.QtWidgets import QWidget, QVBoxLayout
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QMessageBox
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 
 
@@ -26,7 +26,12 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         # Check if the video codec is compatible with hardware acceleration
         supported_codecs = ['h264', 'hevc']  # Add more if needed
         if video_codec.lower() not in supported_codecs:
-            print(f"Unsupported video codec: {video_codec}")
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Alert")
+            dlg.setText(f"Unsupported video codec: {video_codec}")
+            button = dlg.exec_()
+            if button == QMessageBox.Ok:
+                print(f"Unsupported video codec: {video_codec}")
             return
 
         self._video_widget = QVideoWidget()

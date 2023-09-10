@@ -13,6 +13,31 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#videoPlayer QPushButton {
+	border: 2px solid rgb(52, 59, 72);
+	border-radius: 5px;
+	padding:5px;
+}
+#videoPlayer QPushButton:hover {
+	border: 2px solid rgb(61, 70, 86);
+}
+#videoPlayer QPushButton:pressed {
+	border: 2px solid rgb(52, 59, 72);
+}
+
+#videoPlayer QComboBox{
+	border: 2px solid rgb(52, 59, 72);
+	border-radius: 5px;
+	padding:4px;
+}
+#videoPlayer QComboBox:hover {
+	border: 2px solid rgb(61, 70, 86);
+}
+#videoPlayer QComboBox:pressed {
+	border: 2px solid rgb(52, 59, 72);
+}</string>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <property name="leftMargin">
     <number>2</number>
@@ -185,9 +210,9 @@ padding: 5px;</string>
             <item>
              <widget class="QSlider" name="slider_time">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>8</horstretch>
-                <verstretch>8</verstretch>
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
                </sizepolicy>
               </property>
               <property name="orientation">
@@ -198,10 +223,16 @@ padding: 5px;</string>
             <item alignment="Qt::AlignVCenter">
              <widget class="QLabel" name="label_time">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>2</horstretch>
-                <verstretch>2</verstretch>
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>00:00:00.000/00:00:00.000</string>
@@ -223,9 +254,9 @@ padding: 5px;</string>
             <item>
              <widget class="QSlider" name="slider_heatmap">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>8</horstretch>
-                <verstretch>8</verstretch>
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
                </sizepolicy>
               </property>
               <property name="orientation">
@@ -236,10 +267,16 @@ padding: 5px;</string>
             <item alignment="Qt::AlignVCenter">
              <widget class="QLabel" name="label_heatmap">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>2</horstretch>
-                <verstretch>2</verstretch>
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>Heat-map label</string>
@@ -272,12 +309,20 @@ padding: 5px;</string>
            <property name="text">
             <string>Play</string>
            </property>
+           <property name="icon">
+            <iconset resource="../../resources.qrc">
+             <normaloff>:/icons/resources/icons/cil-media-play.png</normaloff>:/icons/resources/icons/cil-media-play.png</iconset>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="btn_stop">
            <property name="text">
             <string>Stop</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../resources.qrc">
+             <normaloff>:/icons/resources/icons/cil-media-stop.png</normaloff>:/icons/resources/icons/cil-media-stop.png</iconset>
            </property>
           </widget>
          </item>

@@ -25,6 +25,29 @@ class Ui_videoPlayer(object):
         if not videoPlayer.objectName():
             videoPlayer.setObjectName(u"videoPlayer")
         videoPlayer.resize(1040, 575)
+        videoPlayer.setStyleSheet(u"#videoPlayer QPushButton {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"	border-radius: 5px;\n"
+"	padding:5px;\n"
+"}\n"
+"#videoPlayer QPushButton:hover {\n"
+"	border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"#videoPlayer QPushButton:pressed {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"}\n"
+"\n"
+"#videoPlayer QComboBox{\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"	border-radius: 5px;\n"
+"	padding:4px;\n"
+"}\n"
+"#videoPlayer QComboBox:hover {\n"
+"	border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"#videoPlayer QComboBox:pressed {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"}")
         self.horizontalLayout_2 = QHBoxLayout(videoPlayer)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(2, 2, 2, 2)
@@ -128,9 +151,9 @@ class Ui_videoPlayer(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.slider_time = QSlider(self.frame_time)
         self.slider_time.setObjectName(u"slider_time")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy6.setHorizontalStretch(8)
-        sizePolicy6.setVerticalStretch(8)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.slider_time.sizePolicy().hasHeightForWidth())
         self.slider_time.setSizePolicy(sizePolicy6)
         self.slider_time.setOrientation(Qt.Horizontal)
@@ -139,11 +162,12 @@ class Ui_videoPlayer(object):
 
         self.label_time = QLabel(self.frame_time)
         self.label_time.setObjectName(u"label_time")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy7.setHorizontalStretch(2)
-        sizePolicy7.setVerticalStretch(2)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
         sizePolicy7.setHeightForWidth(self.label_time.sizePolicy().hasHeightForWidth())
         self.label_time.setSizePolicy(sizePolicy7)
+        self.label_time.setMinimumSize(QSize(200, 0))
 
         self.horizontalLayout_3.addWidget(self.label_time, 0, Qt.AlignVCenter)
 
@@ -168,6 +192,7 @@ class Ui_videoPlayer(object):
         self.label_heatmap.setObjectName(u"label_heatmap")
         sizePolicy7.setHeightForWidth(self.label_heatmap.sizePolicy().hasHeightForWidth())
         self.label_heatmap.setSizePolicy(sizePolicy7)
+        self.label_heatmap.setMinimumSize(QSize(200, 0))
 
         self.horizontalLayout_4.addWidget(self.label_heatmap, 0, Qt.AlignVCenter)
 
@@ -190,11 +215,17 @@ class Ui_videoPlayer(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.btn_play = QPushButton(self.frame_nav_buttons)
         self.btn_play.setObjectName(u"btn_play")
+        icon1 = QIcon()
+        icon1.addFile(u":/icons/resources/icons/cil-media-play.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_play.setIcon(icon1)
 
         self.horizontalLayout.addWidget(self.btn_play)
 
         self.btn_stop = QPushButton(self.frame_nav_buttons)
         self.btn_stop.setObjectName(u"btn_stop")
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/resources/icons/cil-media-stop.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_stop.setIcon(icon2)
 
         self.horizontalLayout.addWidget(self.btn_stop)
 

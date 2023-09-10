@@ -80,6 +80,8 @@ class App(UiBeautify):
         self.settingsTopBtn.setVisible(False)
         self.settingsTopBtn.clicked.connect(openCloseRightBox)
 
+        self.btn_widgets.setVisible(False)
+
     # RESIZE EVENTS
     def resizeEvent(self, event):
         # Update Size Grips

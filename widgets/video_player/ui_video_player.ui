@@ -100,7 +100,7 @@ padding: 5px;</string>
          <string>Back</string>
         </property>
         <property name="icon">
-         <iconset resource="../../resources.qrc">
+         <iconset resource="../../resources/resources.qrc">
           <normaloff>:/icons/icons/cil-arrow-circle-left.png</normaloff>:/icons/icons/cil-arrow-circle-left.png</iconset>
         </property>
        </widget>
@@ -310,7 +310,7 @@ padding: 5px;</string>
             <string>Play</string>
            </property>
            <property name="icon">
-            <iconset resource="../../resources.qrc">
+            <iconset resource="../../resources/resources.qrc">
              <normaloff>:/icons/icons/cil-media-play.png</normaloff>:/icons/icons/cil-media-play.png</iconset>
            </property>
           </widget>
@@ -321,7 +321,7 @@ padding: 5px;</string>
             <string>Stop</string>
            </property>
            <property name="icon">
-            <iconset resource="../../resources.qrc">
+            <iconset resource="../../resources/resources.qrc">
              <normaloff>:/icons/icons/cil-media-stop.png</normaloff>:/icons/icons/cil-media-stop.png</iconset>
            </property>
           </widget>
@@ -374,7 +374,7 @@ padding: 5px;</string>
   </layout>
  </widget>
  <resources>
-  <include location="../../resources.qrc"/>
+  <include location="../../resources/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

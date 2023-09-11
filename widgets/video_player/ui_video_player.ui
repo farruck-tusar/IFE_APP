@@ -101,7 +101,7 @@ padding: 5px;</string>
         </property>
         <property name="icon">
          <iconset resource="../../resources.qrc">
-          <normaloff>:/icons/resources/icons/cil-arrow-circle-left.png</normaloff>:/icons/resources/icons/cil-arrow-circle-left.png</iconset>
+          <normaloff>:/icons/icons/cil-arrow-circle-left.png</normaloff>:/icons/icons/cil-arrow-circle-left.png</iconset>
         </property>
        </widget>
       </item>
@@ -311,7 +311,7 @@ padding: 5px;</string>
            </property>
            <property name="icon">
             <iconset resource="../../resources.qrc">
-             <normaloff>:/icons/resources/icons/cil-media-play.png</normaloff>:/icons/resources/icons/cil-media-play.png</iconset>
+             <normaloff>:/icons/icons/cil-media-play.png</normaloff>:/icons/icons/cil-media-play.png</iconset>
            </property>
           </widget>
          </item>
@@ -322,7 +322,7 @@ padding: 5px;</string>
            </property>
            <property name="icon">
             <iconset resource="../../resources.qrc">
-             <normaloff>:/icons/resources/icons/cil-media-stop.png</normaloff>:/icons/resources/icons/cil-media-stop.png</iconset>
+             <normaloff>:/icons/icons/cil-media-stop.png</normaloff>:/icons/icons/cil-media-stop.png</iconset>
            </property>
           </widget>
          </item>

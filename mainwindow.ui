@@ -72,7 +72,7 @@ Left Menu */
 }
 #topLogo {
 	background-color: rgb(33, 37, 43);
-	background-image: url(:/images/resources/images/logo_ife_white.png);
+	background-image: url(:/images/images/logo_ife_white.png);
 	background-position: centered;
 	background-repeat: no-repeat;
 }
@@ -150,7 +150,7 @@ Extra Tab */
 #extraIcon {
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url(:/icons/resources/icons/icon_settings.png);
+	background-image: url(:/icons/icons/icon_settings.png);
 }
 
 /* Label */
@@ -399,7 +399,7 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background: 3px solid rgb(52, 59, 72);
 	border: 3px solid rgb(52, 59, 72);	
-	background-image: url(:/icons/resources/icons/cil-check-alt.png);
+	background-image: url(:/icons/icons/cil-check-alt.png);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -440,7 +440,7 @@ QComboBox::drop-down {
 	border-left-style: solid;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;	
-	background-image: url(:/icons/resources/icons/cil-arrow-bottom.png);
+	background-image: url(:/icons/icons/cil-arrow-bottom.png);
 	background-position: center;
 	background-repeat: no-reperat;
  }
@@ -814,7 +814,7 @@ stackedWidget */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/resources/icons/icon_menu.png);</string>
+                   <string notr="true">background-image: url(:/icons/icons/icon_menu.png);</string>
                   </property>
                   <property name="text">
                    <string>Hide</string>
@@ -877,7 +877,7 @@ stackedWidget */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/resources/icons/cil-home.png);</string>
+                   <string notr="true">background-image: url(:/icons/icons/cil-home.png);</string>
                   </property>
                   <property name="text">
                    <string>Home</string>
@@ -913,7 +913,7 @@ stackedWidget */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/resources/icons/cil-file.png);</string>
+                   <string notr="true">background-image: url(:/icons/icons/cil-file.png);</string>
                   </property>
                   <property name="text">
                    <string>Load Videos</string>
@@ -949,7 +949,7 @@ stackedWidget */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/resources/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/icons/cil-gamepad.png);</string>
                   </property>
                   <property name="text">
                    <string>Widgets</string>
@@ -985,7 +985,7 @@ stackedWidget */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/resources/icons/cil-x.png);</string>
+                   <string notr="true">background-image: url(:/icons/icons/cil-x.png);</string>
                   </property>
                   <property name="text">
                    <string>Exit</string>
@@ -1048,7 +1048,7 @@ stackedWidget */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/resources/icons/icon_settings.png);</string>
+                   <string notr="true">background-image: url(:/icons/icons/icon_settings.png);</string>
                   </property>
                   <property name="text">
                    <string>Settings</string>
@@ -1209,8 +1209,8 @@ stackedWidget */
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resources.qrc">
-                   <normaloff>:/icons/resources/icons/icon_close.png</normaloff>:/icons/resources/icons/icon_close.png</iconset>
+                  <iconset resource="resources/resources.qrc">
+                   <normaloff>:/icons/icons/icon_close.png</normaloff>:/icons/icons/icon_close.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1480,8 +1480,8 @@ stackedWidget */
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resources.qrc">
-                    <normaloff>:/icons/resources/icons/icon_settings.png</normaloff>:/icons/resources/icons/icon_settings.png</iconset>
+                   <iconset resource="resources/resources.qrc">
+                    <normaloff>:/icons/icons/icon_settings.png</normaloff>:/icons/icons/icon_settings.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1515,8 +1515,8 @@ stackedWidget */
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resources.qrc">
-                    <normaloff>:/icons/resources/icons/icon_minimize.png</normaloff>:/icons/resources/icons/icon_minimize.png</iconset>
+                   <iconset resource="resources/resources.qrc">
+                    <normaloff>:/icons/icons/icon_minimize.png</normaloff>:/icons/icons/icon_minimize.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1559,8 +1559,8 @@ stackedWidget */
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resources.qrc">
-                    <normaloff>:/icons/resources/icons/icon_maximize.png</normaloff>:/icons/resources/icons/icon_maximize.png</iconset>
+                   <iconset resource="resources/resources.qrc">
+                    <normaloff>:/icons/icons/icon_maximize.png</normaloff>:/icons/icons/icon_maximize.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1594,8 +1594,8 @@ stackedWidget */
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resources.qrc">
-                    <normaloff>:/icons/resources/icons/icon_close.png</normaloff>:/icons/resources/icons/icon_close.png</iconset>
+                   <iconset resource="resources/resources.qrc">
+                    <normaloff>:/icons/icons/icon_close.png</normaloff>:/icons/icons/icon_close.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1696,7 +1696,7 @@ stackedWidget */
                      </property>
                      <widget class="QWidget" name="page_home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/resources/images/bg_ife_black.png);
+                       <string notr="true">background-image: url(:/images/images/bg_ife_black.png);
 background-position: center;
 background-repeat: no-repeat;</string>
                       </property>
@@ -1876,8 +1876,8 @@ background-repeat: no-repeat;</string>
                                      <string>Open</string>
                                     </property>
                                     <property name="icon">
-                                     <iconset resource="resources.qrc">
-                                      <normaloff>:/icons/resources/icons/cil-folder-open.png</normaloff>:/icons/resources/icons/cil-folder-open.png</iconset>
+                                     <iconset resource="resources/resources.qrc">
+                                      <normaloff>:/icons/icons/cil-folder-open.png</normaloff>:/icons/icons/cil-folder-open.png</iconset>
                                     </property>
                                    </widget>
                                   </item>
@@ -2098,8 +2098,8 @@ background-repeat: no-repeat;</string>
                                <string>Link Button</string>
                               </property>
                               <property name="icon">
-                               <iconset resource="resources.qrc">
-                                <normaloff>:/icons/resources/icons/cil-link.png</normaloff>:/icons/resources/icons/cil-link.png</iconset>
+                               <iconset resource="resources/resources.qrc">
+                                <normaloff>:/icons/icons/cil-link.png</normaloff>:/icons/icons/cil-link.png</iconset>
                               </property>
                               <property name="description">
                                <string>Link description</string>
@@ -2640,8 +2640,8 @@ background-repeat: no-repeat;</string>
                                 <string>Open Folder</string>
                                </property>
                                <property name="icon">
-                                <iconset resource="resources.qrc">
-                                 <normaloff>:/icons/resources/icons/cil-folder-open.png</normaloff>:/icons/resources/icons/cil-folder-open.png</iconset>
+                                <iconset resource="resources/resources.qrc">
+                                 <normaloff>:/icons/icons/cil-folder-open.png</normaloff>:/icons/icons/cil-folder-open.png</iconset>
                                </property>
                               </widget>
                              </item>
@@ -2817,7 +2817,7 @@ background-repeat: no-repeat;</string>
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/resources/icons/cil-envelope-open.png);</string>
+                            <string notr="true">background-image: url(:/icons/icons/cil-envelope-open.png);</string>
                            </property>
                            <property name="text">
                             <string>Message</string>
@@ -2853,7 +2853,7 @@ background-repeat: no-repeat;</string>
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/resources/icons/cil-print.png);</string>
+                            <string notr="true">background-image: url(:/icons/icons/cil-print.png);</string>
                            </property>
                            <property name="text">
                             <string>Print</string>
@@ -2889,7 +2889,7 @@ background-repeat: no-repeat;</string>
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/resources/icons/cil-account-logout.png);</string>
+                            <string notr="true">background-image: url(:/icons/icons/cil-account-logout.png);</string>
                            </property>
                            <property name="text">
                             <string>Logout</string>
@@ -3016,7 +3016,7 @@ background-repeat: no-repeat;</string>
   </widget>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="resources/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

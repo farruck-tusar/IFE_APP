@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QFrame,
     QHBoxLayout, QLabel, QPushButton, QSizePolicy,
     QSlider, QVBoxLayout, QWidget)
-import resources_rc
+import resources.resources_rc
 
 class Ui_videoPlayer(object):
     def setupUi(self, videoPlayer):
@@ -75,7 +75,7 @@ class Ui_videoPlayer(object):
         self.btn_back.setStyleSheet(u"margin: 10px 0px 0px 10px;\n"
 "padding: 5px;")
         icon = QIcon()
-        icon.addFile(u":/icons/resources/icons/cil-arrow-circle-left.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icons/icons/cil-arrow-circle-left.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_back.setIcon(icon)
 
         self.verticalLayout.addWidget(self.btn_back)
@@ -216,7 +216,7 @@ class Ui_videoPlayer(object):
         self.btn_play = QPushButton(self.frame_nav_buttons)
         self.btn_play.setObjectName(u"btn_play")
         icon1 = QIcon()
-        icon1.addFile(u":/icons/resources/icons/cil-media-play.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/icons/icons/cil-media-play.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_play.setIcon(icon1)
 
         self.horizontalLayout.addWidget(self.btn_play)
@@ -224,7 +224,7 @@ class Ui_videoPlayer(object):
         self.btn_stop = QPushButton(self.frame_nav_buttons)
         self.btn_stop.setObjectName(u"btn_stop")
         icon2 = QIcon()
-        icon2.addFile(u":/icons/resources/icons/cil-media-stop.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u":/icons/icons/cil-media-stop.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_stop.setIcon(icon2)
 
         self.horizontalLayout.addWidget(self.btn_stop)

@@ -15,16 +15,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QFrame,
-    QHBoxLayout, QLabel, QPushButton, QSizePolicy,
-    QSlider, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDoubleSpinBox,
+    QFormLayout, QFrame, QGroupBox, QHBoxLayout,
+    QHeaderView, QLabel, QLineEdit, QPushButton,
+    QScrollArea, QSizePolicy, QSlider, QSpinBox,
+    QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 import resources.resources_rc
 
 class Ui_videoPlayer(object):
     def setupUi(self, videoPlayer):
         if not videoPlayer.objectName():
             videoPlayer.setObjectName(u"videoPlayer")
-        videoPlayer.resize(1040, 575)
+        videoPlayer.resize(1040, 850)
         videoPlayer.setStyleSheet(u"#videoPlayer QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;\n"
@@ -265,6 +267,434 @@ class Ui_videoPlayer(object):
         self.sidebar.setStyleSheet(u"background-color: rgb(33, 37, 43);")
         self.sidebar.setFrameShape(QFrame.StyledPanel)
         self.sidebar.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.sidebar)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.scrollArea = QScrollArea(self.sidebar)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 313, 72))
+        self.verticalLayout1 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout1.setSpacing(6)
+        self.verticalLayout1.setObjectName(u"verticalLayout1")
+        self.verticalLayout1.setContentsMargins(0, 0, 0, 0)
+        self.groupBox_General = QGroupBox(self.scrollAreaWidgetContents_2)
+        self.groupBox_General.setObjectName(u"groupBox_General")
+        font = QFont()
+        font.setBold(False)
+        self.groupBox_General.setFont(font)
+        self.groupBox_General.setFlat(False)
+        self.groupBox_General.setCheckable(False)
+        self.verticalLayout_31 = QVBoxLayout(self.groupBox_General)
+        self.verticalLayout_31.setSpacing(3)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.verticalLayout_31.setContentsMargins(-1, 24, -1, -1)
+        self.layout_G1 = QFormLayout()
+        self.layout_G1.setObjectName(u"layout_G1")
+        self.layout_G1.setHorizontalSpacing(9)
+        self.layout_G1.setVerticalSpacing(3)
+        self.label_file_name = QLabel(self.groupBox_General)
+        self.label_file_name.setObjectName(u"label_file_name")
+
+        self.layout_G1.setWidget(0, QFormLayout.LabelRole, self.label_file_name)
+
+        self.label_file_name_value = QLabel(self.groupBox_General)
+        self.label_file_name_value.setObjectName(u"label_file_name_value")
+
+        self.layout_G1.setWidget(0, QFormLayout.FieldRole, self.label_file_name_value)
+
+        self.label_record_date = QLabel(self.groupBox_General)
+        self.label_record_date.setObjectName(u"label_record_date")
+        sizePolicy11 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy11.setHorizontalStretch(0)
+        sizePolicy11.setVerticalStretch(0)
+        sizePolicy11.setHeightForWidth(self.label_record_date.sizePolicy().hasHeightForWidth())
+        self.label_record_date.setSizePolicy(sizePolicy11)
+        self.label_record_date.setMinimumSize(QSize(0, 0))
+        self.label_record_date.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(1, QFormLayout.LabelRole, self.label_record_date)
+
+        self.dateEdit_record_date = QDateEdit(self.groupBox_General)
+        self.dateEdit_record_date.setObjectName(u"dateEdit_record_date")
+        sizePolicy11.setHeightForWidth(self.dateEdit_record_date.sizePolicy().hasHeightForWidth())
+        self.dateEdit_record_date.setSizePolicy(sizePolicy11)
+        self.dateEdit_record_date.setMinimumSize(QSize(0, 0))
+        self.dateEdit_record_date.setMaximumSize(QSize(16777215, 16777215))
+        self.dateEdit_record_date.setLocale(QLocale(QLocale.English, QLocale.World))
+
+        self.layout_G1.setWidget(1, QFormLayout.FieldRole, self.dateEdit_record_date)
+
+        self.label_com_name = QLabel(self.groupBox_General)
+        self.label_com_name.setObjectName(u"label_com_name")
+        sizePolicy11.setHeightForWidth(self.label_com_name.sizePolicy().hasHeightForWidth())
+        self.label_com_name.setSizePolicy(sizePolicy11)
+        self.label_com_name.setMinimumSize(QSize(0, 0))
+        self.label_com_name.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(2, QFormLayout.LabelRole, self.label_com_name)
+
+        self.lineEdit_com_name = QLineEdit(self.groupBox_General)
+        self.lineEdit_com_name.setObjectName(u"lineEdit_com_name")
+        sizePolicy11.setHeightForWidth(self.lineEdit_com_name.sizePolicy().hasHeightForWidth())
+        self.lineEdit_com_name.setSizePolicy(sizePolicy11)
+        self.lineEdit_com_name.setMinimumSize(QSize(0, 0))
+        self.lineEdit_com_name.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(2, QFormLayout.FieldRole, self.lineEdit_com_name)
+
+        self.label_bra_name = QLabel(self.groupBox_General)
+        self.label_bra_name.setObjectName(u"label_bra_name")
+        sizePolicy11.setHeightForWidth(self.label_bra_name.sizePolicy().hasHeightForWidth())
+        self.label_bra_name.setSizePolicy(sizePolicy11)
+        self.label_bra_name.setMinimumSize(QSize(0, 0))
+        self.label_bra_name.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(3, QFormLayout.LabelRole, self.label_bra_name)
+
+        self.comboBox_bra_name = QComboBox(self.groupBox_General)
+        self.comboBox_bra_name.setObjectName(u"comboBox_bra_name")
+        sizePolicy11.setHeightForWidth(self.comboBox_bra_name.sizePolicy().hasHeightForWidth())
+        self.comboBox_bra_name.setSizePolicy(sizePolicy11)
+        self.comboBox_bra_name.setMinimumSize(QSize(0, 0))
+        self.comboBox_bra_name.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(3, QFormLayout.FieldRole, self.comboBox_bra_name)
+
+        self.label_pl_name = QLabel(self.groupBox_General)
+        self.label_pl_name.setObjectName(u"label_pl_name")
+        sizePolicy11.setHeightForWidth(self.label_pl_name.sizePolicy().hasHeightForWidth())
+        self.label_pl_name.setSizePolicy(sizePolicy11)
+        self.label_pl_name.setMinimumSize(QSize(0, 0))
+        self.label_pl_name.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(4, QFormLayout.LabelRole, self.label_pl_name)
+
+        self.lineEdit_pl_name = QLineEdit(self.groupBox_General)
+        self.lineEdit_pl_name.setObjectName(u"lineEdit_pl_name")
+        sizePolicy11.setHeightForWidth(self.lineEdit_pl_name.sizePolicy().hasHeightForWidth())
+        self.lineEdit_pl_name.setSizePolicy(sizePolicy11)
+        self.lineEdit_pl_name.setMinimumSize(QSize(0, 0))
+        self.lineEdit_pl_name.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(4, QFormLayout.FieldRole, self.lineEdit_pl_name)
+
+        self.label_pp_num = QLabel(self.groupBox_General)
+        self.label_pp_num.setObjectName(u"label_pp_num")
+        sizePolicy11.setHeightForWidth(self.label_pp_num.sizePolicy().hasHeightForWidth())
+        self.label_pp_num.setSizePolicy(sizePolicy11)
+        self.label_pp_num.setMinimumSize(QSize(0, 0))
+        self.label_pp_num.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(5, QFormLayout.LabelRole, self.label_pp_num)
+
+        self.spinBox_pp_num = QSpinBox(self.groupBox_General)
+        self.spinBox_pp_num.setObjectName(u"spinBox_pp_num")
+        sizePolicy11.setHeightForWidth(self.spinBox_pp_num.sizePolicy().hasHeightForWidth())
+        self.spinBox_pp_num.setSizePolicy(sizePolicy11)
+        self.spinBox_pp_num.setMinimumSize(QSize(0, 0))
+        self.spinBox_pp_num.setMaximumSize(QSize(16777215, 16777215))
+        self.spinBox_pp_num.setMaximum(999)
+
+        self.layout_G1.setWidget(5, QFormLayout.FieldRole, self.spinBox_pp_num)
+
+        self.label_location_lon = QLabel(self.groupBox_General)
+        self.label_location_lon.setObjectName(u"label_location_lon")
+        sizePolicy11.setHeightForWidth(self.label_location_lon.sizePolicy().hasHeightForWidth())
+        self.label_location_lon.setSizePolicy(sizePolicy11)
+        self.label_location_lon.setMinimumSize(QSize(0, 0))
+        self.label_location_lon.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(6, QFormLayout.LabelRole, self.label_location_lon)
+
+        self.horizontalLayout_13 = QHBoxLayout()
+        self.horizontalLayout_13.setSpacing(10)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.lineEdit_location_lon = QLineEdit(self.groupBox_General)
+        self.lineEdit_location_lon.setObjectName(u"lineEdit_location_lon")
+        sizePolicy11.setHeightForWidth(self.lineEdit_location_lon.sizePolicy().hasHeightForWidth())
+        self.lineEdit_location_lon.setSizePolicy(sizePolicy11)
+        self.lineEdit_location_lon.setMinimumSize(QSize(0, 0))
+        self.lineEdit_location_lon.setMaximumSize(QSize(16777215, 16777215))
+
+        self.horizontalLayout_13.addWidget(self.lineEdit_location_lon)
+
+        self.lineEdit_location_lat = QLineEdit(self.groupBox_General)
+        self.lineEdit_location_lat.setObjectName(u"lineEdit_location_lat")
+        sizePolicy11.setHeightForWidth(self.lineEdit_location_lat.sizePolicy().hasHeightForWidth())
+        self.lineEdit_location_lat.setSizePolicy(sizePolicy11)
+        self.lineEdit_location_lat.setMinimumSize(QSize(0, 0))
+        self.lineEdit_location_lat.setMaximumSize(QSize(16777215, 16777215))
+
+        self.horizontalLayout_13.addWidget(self.lineEdit_location_lat)
+
+
+        self.layout_G1.setLayout(6, QFormLayout.FieldRole, self.horizontalLayout_13)
+
+        self.label_pl_level = QLabel(self.groupBox_General)
+        self.label_pl_level.setObjectName(u"label_pl_level")
+        sizePolicy11.setHeightForWidth(self.label_pl_level.sizePolicy().hasHeightForWidth())
+        self.label_pl_level.setSizePolicy(sizePolicy11)
+        self.label_pl_level.setMinimumSize(QSize(0, 0))
+        self.label_pl_level.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(7, QFormLayout.LabelRole, self.label_pl_level)
+
+        self.comboBox_pl_level = QComboBox(self.groupBox_General)
+        self.comboBox_pl_level.setObjectName(u"comboBox_pl_level")
+        sizePolicy11.setHeightForWidth(self.comboBox_pl_level.sizePolicy().hasHeightForWidth())
+        self.comboBox_pl_level.setSizePolicy(sizePolicy11)
+        self.comboBox_pl_level.setMinimumSize(QSize(0, 0))
+        self.comboBox_pl_level.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(7, QFormLayout.FieldRole, self.comboBox_pl_level)
+
+        self.label_pl_cir_type = QLabel(self.groupBox_General)
+        self.label_pl_cir_type.setObjectName(u"label_pl_cir_type")
+        sizePolicy11.setHeightForWidth(self.label_pl_cir_type.sizePolicy().hasHeightForWidth())
+        self.label_pl_cir_type.setSizePolicy(sizePolicy11)
+        self.label_pl_cir_type.setMinimumSize(QSize(0, 0))
+        self.label_pl_cir_type.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(8, QFormLayout.LabelRole, self.label_pl_cir_type)
+
+        self.comboBox_pl_cir_type = QComboBox(self.groupBox_General)
+        self.comboBox_pl_cir_type.setObjectName(u"comboBox_pl_cir_type")
+        sizePolicy11.setHeightForWidth(self.comboBox_pl_cir_type.sizePolicy().hasHeightForWidth())
+        self.comboBox_pl_cir_type.setSizePolicy(sizePolicy11)
+        self.comboBox_pl_cir_type.setMinimumSize(QSize(0, 0))
+        self.comboBox_pl_cir_type.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(8, QFormLayout.FieldRole, self.comboBox_pl_cir_type)
+
+        self.label_pp_type = QLabel(self.groupBox_General)
+        self.label_pp_type.setObjectName(u"label_pp_type")
+        sizePolicy11.setHeightForWidth(self.label_pp_type.sizePolicy().hasHeightForWidth())
+        self.label_pp_type.setSizePolicy(sizePolicy11)
+        self.label_pp_type.setMinimumSize(QSize(0, 0))
+        self.label_pp_type.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(9, QFormLayout.LabelRole, self.label_pp_type)
+
+        self.comboBox_pp_type = QComboBox(self.groupBox_General)
+        self.comboBox_pp_type.setObjectName(u"comboBox_pp_type")
+        sizePolicy11.setHeightForWidth(self.comboBox_pp_type.sizePolicy().hasHeightForWidth())
+        self.comboBox_pp_type.setSizePolicy(sizePolicy11)
+        self.comboBox_pp_type.setMinimumSize(QSize(0, 0))
+        self.comboBox_pp_type.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(9, QFormLayout.FieldRole, self.comboBox_pp_type)
+
+        self.label_pp_model = QLabel(self.groupBox_General)
+        self.label_pp_model.setObjectName(u"label_pp_model")
+        sizePolicy11.setHeightForWidth(self.label_pp_model.sizePolicy().hasHeightForWidth())
+        self.label_pp_model.setSizePolicy(sizePolicy11)
+        self.label_pp_model.setMinimumSize(QSize(0, 0))
+        self.label_pp_model.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(10, QFormLayout.LabelRole, self.label_pp_model)
+
+        self.comboBox_pp_model = QComboBox(self.groupBox_General)
+        self.comboBox_pp_model.setObjectName(u"comboBox_pp_model")
+        sizePolicy11.setHeightForWidth(self.comboBox_pp_model.sizePolicy().hasHeightForWidth())
+        self.comboBox_pp_model.setSizePolicy(sizePolicy11)
+        self.comboBox_pp_model.setMinimumSize(QSize(0, 0))
+        self.comboBox_pp_model.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(10, QFormLayout.FieldRole, self.comboBox_pp_model)
+
+        self.label_num_inst_str = QLabel(self.groupBox_General)
+        self.label_num_inst_str.setObjectName(u"label_num_inst_str")
+        sizePolicy11.setHeightForWidth(self.label_num_inst_str.sizePolicy().hasHeightForWidth())
+        self.label_num_inst_str.setSizePolicy(sizePolicy11)
+        self.label_num_inst_str.setMinimumSize(QSize(0, 0))
+        self.label_num_inst_str.setMaximumSize(QSize(16777215, 16777215))
+
+        self.layout_G1.setWidget(11, QFormLayout.LabelRole, self.label_num_inst_str)
+
+        self.spinBox_num_inst_str = QSpinBox(self.groupBox_General)
+        self.spinBox_num_inst_str.setObjectName(u"spinBox_num_inst_str")
+        sizePolicy11.setHeightForWidth(self.spinBox_num_inst_str.sizePolicy().hasHeightForWidth())
+        self.spinBox_num_inst_str.setSizePolicy(sizePolicy11)
+        self.spinBox_num_inst_str.setMinimumSize(QSize(0, 0))
+        self.spinBox_num_inst_str.setMaximumSize(QSize(16777215, 16777215))
+        self.spinBox_num_inst_str.setMaximum(30)
+
+        self.layout_G1.setWidget(11, QFormLayout.FieldRole, self.spinBox_num_inst_str)
+
+
+        self.verticalLayout_31.addLayout(self.layout_G1)
+
+        self.layout_G2 = QHBoxLayout()
+        self.layout_G2.setObjectName(u"layout_G2")
+        self.pushButton_saveG = QPushButton(self.groupBox_General)
+        self.pushButton_saveG.setObjectName(u"pushButton_saveG")
+        sizePolicy11.setHeightForWidth(self.pushButton_saveG.sizePolicy().hasHeightForWidth())
+        self.pushButton_saveG.setSizePolicy(sizePolicy11)
+        self.pushButton_saveG.setMinimumSize(QSize(0, 23))
+        self.pushButton_saveG.setMaximumSize(QSize(16777215, 23))
+
+        self.layout_G2.addWidget(self.pushButton_saveG)
+
+
+        self.verticalLayout_31.addLayout(self.layout_G2)
+
+
+        self.verticalLayout1.addWidget(self.groupBox_General)
+
+        self.groupBox_Damage = QGroupBox(self.scrollAreaWidgetContents_2)
+        self.groupBox_Damage.setObjectName(u"groupBox_Damage")
+        sizePolicy12 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy12.setHorizontalStretch(0)
+        sizePolicy12.setVerticalStretch(0)
+        sizePolicy12.setHeightForWidth(self.groupBox_Damage.sizePolicy().hasHeightForWidth())
+        self.groupBox_Damage.setSizePolicy(sizePolicy12)
+        self.groupBox_Damage.setFont(font)
+        self.verticalLayout_6 = QVBoxLayout(self.groupBox_Damage)
+        self.verticalLayout_6.setSpacing(3)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(9, 24, -1, -1)
+        self.layout_D1 = QFormLayout()
+        self.layout_D1.setObjectName(u"layout_D1")
+        self.layout_D1.setHorizontalSpacing(9)
+        self.layout_D1.setVerticalSpacing(3)
+        self.label_report_number = QLabel(self.groupBox_Damage)
+        self.label_report_number.setObjectName(u"label_report_number")
+
+        self.layout_D1.setWidget(0, QFormLayout.LabelRole, self.label_report_number)
+
+        self.spinBox_report_number = QSpinBox(self.groupBox_Damage)
+        self.spinBox_report_number.setObjectName(u"spinBox_report_number")
+
+        self.layout_D1.setWidget(0, QFormLayout.FieldRole, self.spinBox_report_number)
+
+        self.label_process_date = QLabel(self.groupBox_Damage)
+        self.label_process_date.setObjectName(u"label_process_date")
+        sizePolicy11.setHeightForWidth(self.label_process_date.sizePolicy().hasHeightForWidth())
+        self.label_process_date.setSizePolicy(sizePolicy11)
+
+        self.layout_D1.setWidget(1, QFormLayout.LabelRole, self.label_process_date)
+
+        self.dateEdit_process_date = QDateEdit(self.groupBox_Damage)
+        self.dateEdit_process_date.setObjectName(u"dateEdit_process_date")
+        sizePolicy11.setHeightForWidth(self.dateEdit_process_date.sizePolicy().hasHeightForWidth())
+        self.dateEdit_process_date.setSizePolicy(sizePolicy11)
+
+        self.layout_D1.setWidget(1, QFormLayout.FieldRole, self.dateEdit_process_date)
+
+        self.label_staff = QLabel(self.groupBox_Damage)
+        self.label_staff.setObjectName(u"label_staff")
+
+        self.layout_D1.setWidget(2, QFormLayout.LabelRole, self.label_staff)
+
+        self.lineEdit_staff = QLineEdit(self.groupBox_Damage)
+        self.lineEdit_staff.setObjectName(u"lineEdit_staff")
+
+        self.layout_D1.setWidget(2, QFormLayout.FieldRole, self.lineEdit_staff)
+
+
+        self.verticalLayout_6.addLayout(self.layout_D1)
+
+        self.label_damage = QLabel(self.groupBox_Damage)
+        self.label_damage.setObjectName(u"label_damage")
+
+        self.verticalLayout_6.addWidget(self.label_damage)
+
+        self.treeWidget = QTreeWidget(self.groupBox_Damage)
+        __qtreewidgetitem = QTreeWidgetItem()
+        __qtreewidgetitem.setTextAlignment(3, Qt.AlignLeading|Qt.AlignVCenter);
+        __qtreewidgetitem.setTextAlignment(2, Qt.AlignLeading|Qt.AlignVCenter);
+        __qtreewidgetitem.setTextAlignment(1, Qt.AlignLeading|Qt.AlignVCenter);
+        __qtreewidgetitem.setTextAlignment(0, Qt.AlignLeading|Qt.AlignVCenter);
+        self.treeWidget.setHeaderItem(__qtreewidgetitem)
+        self.treeWidget.setObjectName(u"treeWidget")
+        sizePolicy6.setHeightForWidth(self.treeWidget.sizePolicy().hasHeightForWidth())
+        self.treeWidget.setSizePolicy(sizePolicy6)
+
+        self.verticalLayout_6.addWidget(self.treeWidget)
+
+        self.layout_D2 = QHBoxLayout()
+        self.layout_D2.setObjectName(u"layout_D2")
+        self.label_pushbutton1 = QLabel(self.groupBox_Damage)
+        self.label_pushbutton1.setObjectName(u"label_pushbutton1")
+
+        self.layout_D2.addWidget(self.label_pushbutton1)
+
+        self.pushButton_add_1 = QPushButton(self.groupBox_Damage)
+        self.pushButton_add_1.setObjectName(u"pushButton_add_1")
+        self.pushButton_add_1.setMinimumSize(QSize(23, 23))
+        self.pushButton_add_1.setMaximumSize(QSize(23, 23))
+
+        self.layout_D2.addWidget(self.pushButton_add_1)
+
+        self.pushButton_sub_1 = QPushButton(self.groupBox_Damage)
+        self.pushButton_sub_1.setObjectName(u"pushButton_sub_1")
+        self.pushButton_sub_1.setMinimumSize(QSize(23, 23))
+        self.pushButton_sub_1.setMaximumSize(QSize(23, 23))
+
+        self.layout_D2.addWidget(self.pushButton_sub_1)
+
+        self.line = QFrame(self.groupBox_Damage)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.VLine)
+        self.line.setFrameShadow(QFrame.Sunken)
+
+        self.layout_D2.addWidget(self.line)
+
+        self.label_pushbutton2 = QLabel(self.groupBox_Damage)
+        self.label_pushbutton2.setObjectName(u"label_pushbutton2")
+
+        self.layout_D2.addWidget(self.label_pushbutton2)
+
+        self.pushButton_add_2 = QPushButton(self.groupBox_Damage)
+        self.pushButton_add_2.setObjectName(u"pushButton_add_2")
+        self.pushButton_add_2.setMinimumSize(QSize(23, 23))
+        self.pushButton_add_2.setMaximumSize(QSize(23, 23))
+
+        self.layout_D2.addWidget(self.pushButton_add_2)
+
+        self.pushButton_sub_2 = QPushButton(self.groupBox_Damage)
+        self.pushButton_sub_2.setObjectName(u"pushButton_sub_2")
+        self.pushButton_sub_2.setMinimumSize(QSize(23, 23))
+        self.pushButton_sub_2.setMaximumSize(QSize(23, 23))
+
+        self.layout_D2.addWidget(self.pushButton_sub_2)
+
+
+        self.verticalLayout_6.addLayout(self.layout_D2)
+
+        self.layout_D3 = QHBoxLayout()
+        self.layout_D3.setObjectName(u"layout_D3")
+        self.pushButton_openDirD = QPushButton(self.groupBox_Damage)
+        self.pushButton_openDirD.setObjectName(u"pushButton_openDirD")
+        sizePolicy11.setHeightForWidth(self.pushButton_openDirD.sizePolicy().hasHeightForWidth())
+        self.pushButton_openDirD.setSizePolicy(sizePolicy11)
+        self.pushButton_openDirD.setMinimumSize(QSize(40, 23))
+        self.pushButton_openDirD.setMaximumSize(QSize(16777215, 23))
+
+        self.layout_D3.addWidget(self.pushButton_openDirD)
+
+        self.pushButton_saveD = QPushButton(self.groupBox_Damage)
+        self.pushButton_saveD.setObjectName(u"pushButton_saveD")
+        sizePolicy11.setHeightForWidth(self.pushButton_saveD.sizePolicy().hasHeightForWidth())
+        self.pushButton_saveD.setSizePolicy(sizePolicy11)
+        self.pushButton_saveD.setMinimumSize(QSize(40, 23))
+        self.pushButton_saveD.setMaximumSize(QSize(16777215, 23))
+
+        self.layout_D3.addWidget(self.pushButton_saveD)
+
+
+        self.verticalLayout_6.addLayout(self.layout_D3)
+
+
+        self.verticalLayout1.addWidget(self.groupBox_Damage)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.verticalLayout_4.addWidget(self.scrollArea)
+
 
         self.horizontalLayout_2.addWidget(self.sidebar)
 
@@ -283,5 +713,44 @@ class Ui_videoPlayer(object):
         self.btn_play.setText(QCoreApplication.translate("videoPlayer", u"Play", None))
         self.btn_stop.setText(QCoreApplication.translate("videoPlayer", u"Stop", None))
         self.btn_process.setText(QCoreApplication.translate("videoPlayer", u"Process Video", None))
+        self.groupBox_General.setTitle(QCoreApplication.translate("videoPlayer", u"[ General Information ]", None))
+        self.label_file_name.setText(QCoreApplication.translate("videoPlayer", u"File name:", None))
+        self.label_file_name_value.setText(QCoreApplication.translate("videoPlayer", u"noname", None))
+        self.label_record_date.setText(QCoreApplication.translate("videoPlayer", u"Recorded date:", None))
+        self.label_com_name.setText(QCoreApplication.translate("videoPlayer", u"Company name:", None))
+        self.label_bra_name.setText(QCoreApplication.translate("videoPlayer", u"Branch name:", None))
+        self.label_pl_name.setText(QCoreApplication.translate("videoPlayer", u"Power line name:", None))
+        self.label_pp_num.setText(QCoreApplication.translate("videoPlayer", u"Power pole number:", None))
+        self.label_location_lon.setText(QCoreApplication.translate("videoPlayer", u"Location [lon/lat]:", None))
+        self.label_pl_level.setText(QCoreApplication.translate("videoPlayer", u"Voltage level [kV]:", None))
+        self.label_pl_cir_type.setText(QCoreApplication.translate("videoPlayer", u"Power line circuit type:", None))
+        self.label_pp_type.setText(QCoreApplication.translate("videoPlayer", u"Power pole type:", None))
+        self.label_pp_model.setText(QCoreApplication.translate("videoPlayer", u"Power pole model:", None))
+        self.label_num_inst_str.setText(QCoreApplication.translate("videoPlayer", u"Insulator count:", None))
+        self.pushButton_saveG.setText(QCoreApplication.translate("videoPlayer", u"Save", None))
+        self.groupBox_Damage.setTitle(QCoreApplication.translate("videoPlayer", u" [ Damage Assessment ]", None))
+        self.label_report_number.setText(QCoreApplication.translate("videoPlayer", u"Report number:", None))
+        self.label_process_date.setText(QCoreApplication.translate("videoPlayer", u"Assessment date:", None))
+        self.label_staff.setText(QCoreApplication.translate("videoPlayer", u"TextLabel", None))
+        self.label_damage.setText(QCoreApplication.translate("videoPlayer", u"Damages:", None))
+        ___qtreewidgetitem = self.treeWidget.headerItem()
+        ___qtreewidgetitem.setText(3, QCoreApplication.translate("videoPlayer", u"Damage", None));
+        ___qtreewidgetitem.setText(2, QCoreApplication.translate("videoPlayer", u"n", None));
+        ___qtreewidgetitem.setText(1, QCoreApplication.translate("videoPlayer", u"Phase", None));
+        ___qtreewidgetitem.setText(0, QCoreApplication.translate("videoPlayer", u"Insulator", None));
+        self.label_pushbutton1.setText(QCoreApplication.translate("videoPlayer", u"Insulator:", None))
+        self.pushButton_add_1.setText(QCoreApplication.translate("videoPlayer", u"+", None))
+        self.pushButton_sub_1.setText(QCoreApplication.translate("videoPlayer", u"-", None))
+        self.label_pushbutton2.setText(QCoreApplication.translate("videoPlayer", u"Element:", None))
+        self.pushButton_add_2.setText(QCoreApplication.translate("videoPlayer", u"+", None))
+        self.pushButton_sub_2.setText(QCoreApplication.translate("videoPlayer", u"-", None))
+        self.pushButton_openDirD.setText(QCoreApplication.translate("videoPlayer", u"Open Dir", None))
+#if QT_CONFIG(shortcut)
+        self.pushButton_openDirD.setShortcut(QCoreApplication.translate("videoPlayer", u"Ctrl+P", None))
+#endif // QT_CONFIG(shortcut)
+        self.pushButton_saveD.setText(QCoreApplication.translate("videoPlayer", u"Save", None))
+#if QT_CONFIG(shortcut)
+        self.pushButton_saveD.setShortcut(QCoreApplication.translate("videoPlayer", u"Ctrl+S", None))
+#endif // QT_CONFIG(shortcut)
     # retranslateUi
 

@@ -1,6 +1,6 @@
 import sys
 import ffmpeg
-from PySide6.QtCore import Slot, QTimer
+from PySide6.QtCore import Slot
 from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QMessageBox

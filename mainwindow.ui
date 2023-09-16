@@ -442,7 +442,7 @@ QComboBox::drop-down {
 	border-bottom-right-radius: 3px;	
 	background-image: url(:/icons/icons/cil-arrow-bottom.png);
 	background-position: center;
-	background-repeat: no-reperat;
+	background-repeat: no-repeat;
  }
 QComboBox QAbstractItemView {
 	color: rgb(255, 121, 198);	

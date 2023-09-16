@@ -27,27 +27,15 @@ class Ui_videoPlayer(object):
         if not videoPlayer.objectName():
             videoPlayer.setObjectName(u"videoPlayer")
         videoPlayer.resize(1040, 850)
-        videoPlayer.setStyleSheet(u"#videoPlayer QPushButton {\n"
+        videoPlayer.setStyleSheet(u"#videoPlayer QPushButton, QLineEdit, QSpinBox,  QDateEdit, QComboBox {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;\n"
 "	padding:5px;\n"
 "}\n"
-"#videoPlayer QPushButton:hover {\n"
+"#videoPlayer QPushButton:hover, QLineEdit:hover, QSpinBox:hover, QDateEdit:hover, QComboBox:hover {\n"
 "	border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
-"#videoPlayer QPushButton:pressed {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"}\n"
-"\n"
-"#videoPlayer QComboBox{\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;\n"
-"	padding:4px;\n"
-"}\n"
-"#videoPlayer QComboBox:hover {\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
-"}\n"
-"#videoPlayer QComboBox:pressed {\n"
+"#videoPlayer QPushButton:pressed, QComboBox:pressed {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "}")
         self.horizontalLayout_2 = QHBoxLayout(videoPlayer)
@@ -275,7 +263,7 @@ class Ui_videoPlayer(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 313, 72))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 313, 944))
         self.verticalLayout1 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout1.setSpacing(6)
         self.verticalLayout1.setObjectName(u"verticalLayout1")
@@ -302,6 +290,7 @@ class Ui_videoPlayer(object):
 
         self.label_file_name_value = QLabel(self.groupBox_General)
         self.label_file_name_value.setObjectName(u"label_file_name_value")
+        self.label_file_name_value.setStyleSheet(u"padding: 5px;")
 
         self.layout_G1.setWidget(0, QFormLayout.FieldRole, self.label_file_name_value)
 

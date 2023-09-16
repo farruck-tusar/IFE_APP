@@ -14,27 +14,15 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#videoPlayer QPushButton {
+   <string notr="true">#videoPlayer QPushButton, QLineEdit, QSpinBox,  QDateEdit, QComboBox {
 	border: 2px solid rgb(52, 59, 72);
 	border-radius: 5px;
 	padding:5px;
 }
-#videoPlayer QPushButton:hover {
+#videoPlayer QPushButton:hover, QLineEdit:hover, QSpinBox:hover, QDateEdit:hover, QComboBox:hover {
 	border: 2px solid rgb(61, 70, 86);
 }
-#videoPlayer QPushButton:pressed {
-	border: 2px solid rgb(52, 59, 72);
-}
-
-#videoPlayer QComboBox{
-	border: 2px solid rgb(52, 59, 72);
-	border-radius: 5px;
-	padding:4px;
-}
-#videoPlayer QComboBox:hover {
-	border: 2px solid rgb(61, 70, 86);
-}
-#videoPlayer QComboBox:pressed {
+#videoPlayer QPushButton:pressed, QComboBox:pressed {
 	border: 2px solid rgb(52, 59, 72);
 }</string>
   </property>
@@ -384,10 +372,10 @@ padding: 5px;</string>
            <x>0</x>
            <y>0</y>
            <width>313</width>
-           <height>72</height>
+           <height>944</height>
           </rect>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
+         <layout class="QVBoxLayout" name="verticalLayout1">
           <property name="spacing">
            <number>6</number>
           </property>
@@ -419,7 +407,7 @@ padding: 5px;</string>
             <property name="checkable">
              <bool>false</bool>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
+            <layout class="QVBoxLayout" name="verticalLayout_31">
              <property name="spacing">
               <number>3</number>
              </property>
@@ -443,6 +431,9 @@ padding: 5px;</string>
                </item>
                <item row="0" column="1">
                 <widget class="QLabel" name="label_file_name_value">
+                 <property name="styleSheet">
+                  <string notr="true">padding: 5px;</string>
+                 </property>
                  <property name="text">
                   <string>noname</string>
                  </property>

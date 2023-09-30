@@ -259,7 +259,7 @@ class Ui_videoPlayer(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.scrollArea = QScrollArea(self.sidebar)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")

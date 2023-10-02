@@ -15,20 +15,6 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
 
         self.ui.btn_back.clicked.connect(lambda: main_ui.stackedWidget.setCurrentWidget(main_ui.page_loadVideos))
 
-        # TODO: add/fix windows support here
-        # # Use ffmpeg to probe the video file
-        # probe = ffmpeg.probe(video_path, v="error", select_streams="v:0", show_entries="stream=codec_name")
-        # video_codec = probe['streams'][0]['codec_name']
-        #
-        # # Check if the video codec is compatible with hardware acceleration
-        # supported_codecs = ['h264', 'hevc']  # Add more if needed
-        # if video_codec.lower() not in supported_codecs:
-        #     dlg = QMessageBox(self)
-        #     dlg.setWindowTitle("Alert")
-        #     dlg.setText(f"Unsupported video codec: {video_codec}")
-        #     dlg.exec_()
-        #     return
-
         self._video_widget = QVideoWidget()
         QVBoxLayout(self.ui.frame_player).addWidget(self._video_widget)
 

@@ -1,5 +1,5 @@
 import sys
-from PySide6.QtCore import Slot
+from PySide6.QtCore import Slot, QTimer
 from PySide6.QtGui import QIcon
 from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
@@ -21,8 +21,8 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._player = QMediaPlayer()
         self._player.errorOccurred.connect(self._player_error)
 
-        self._player.setSource(video_path)
         self._player.setVideoOutput(self._video_widget)
+        self._player.setSource(video_path)
 
         # Initialize icons
         self._play_icon = QIcon(":icons/icons/cil-media-play.png")
@@ -35,6 +35,10 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._stop_action.clicked.connect(self._player.stop)
 
         self._player.playbackStateChanged.connect(self.update_buttons)
+
+        self._update_timer = QTimer(self)
+        self._update_timer.timeout.connect(self.update_video_position1)
+        self._update_timer.start(100)
 
     @Slot("QMediaPlayer::PlaybackState")
     def update_buttons(self, state):
@@ -49,13 +53,6 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         elif state == QMediaPlayer.StoppedState:
             self._play_action.setText("Play")
             self._play_action.setIcon(self._play_icon)
-
-        duration = self._player.duration()
-        position = self._player.position()
-        formatted_position = self.format_time(position)
-        formatted_duration = self.format_time(duration)
-        self.ui.label_time.setText(f"{formatted_position}/{formatted_duration}")
-        self.ui.slider_time.setValue(position)
 
     @Slot("QMediaPlayer::Error", str)
     def _player_error(self, error, error_string):
@@ -76,13 +73,15 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         if self._player.playbackState() != QMediaPlayer.StoppedState:
             self._player.stop()
 
-    @Slot("qint64")
-    def update_video_position(self, position):
-        duration = self._player.duration()
-        formatted_position = self.format_time(position)
-        formatted_duration = self.format_time(duration)
-        self.ui.label_time.setText(f"{formatted_position}/{formatted_duration}")
-        self.ui.slider_time.setValue(position)
+    def update_video_position1(self):
+        if self._player.duration() > 0:
+            position = self._player.position()
+            duration = self._player.duration()
+            formatted_position = self.format_time(position)
+            formatted_duration = self.format_time(duration)
+            self.ui.label_time.setText(f"{formatted_position}/{formatted_duration}")
+            self.ui.slider_time.setMaximum(duration)
+            self.ui.slider_time.setValue(position)
 
     def format_time(self, milliseconds):
         total_seconds = milliseconds // 1000

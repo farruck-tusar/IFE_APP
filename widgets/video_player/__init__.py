@@ -1,10 +1,9 @@
 import sys
-import ffmpeg
 from PySide6.QtCore import Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QMessageBox
+from PySide6.QtWidgets import QWidget, QVBoxLayout
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 
 
@@ -22,14 +21,15 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._player = QMediaPlayer()
         self._player.errorOccurred.connect(self._player_error)
 
-        # Disable hardware acceleration
-        self._player.setProperty("no-video-signal", True)
-
         self._player.setSource(video_path)
         self._player.setVideoOutput(self._video_widget)
 
+        # Initialize icons
+        self._play_icon = QIcon(":icons/icons/cil-media-play.png")
+        self._pause_icon = QIcon(":icons/icons/cil-media-pause.png")
         self._play_action = self.ui.btn_play
-        self._play_action.clicked.connect(self._player.play)
+        self._play_action.setIcon(self._play_icon)
+        self._play_action.clicked.connect(self.toggle_play_pause)
 
         self._stop_action = self.ui.btn_stop
         self._stop_action.clicked.connect(self._player.stop)
@@ -42,19 +42,13 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
 
         if state == QMediaPlayer.PlayingState:
             self._play_action.setText("Pause")
-            self._play_action.setIcon(QIcon(":icons/icons/cil-media-pause.png"))
-            self._play_action.clicked.disconnect()
-            self._play_action.clicked.connect(self._player.pause)
+            self._play_action.setIcon(self._pause_icon)
         elif state == QMediaPlayer.PausedState:
             self._play_action.setText("Play")
-            self._play_action.setIcon(QIcon(":icons/icons/cil-media-play.png"))
-            self._play_action.clicked.disconnect()
-            self._play_action.clicked.connect(self._player.play)
+            self._play_action.setIcon(self._play_icon)
         elif state == QMediaPlayer.StoppedState:
             self._play_action.setText("Play")
-            self._play_action.setIcon(QIcon(":icons/icons/cil-media-play.png"))
-            self._play_action.clicked.disconnect()
-            self._play_action.clicked.connect(self._player.play)
+            self._play_action.setIcon(self._play_icon)
 
         duration = self._player.duration()
         position = self._player.position()
@@ -66,6 +60,12 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
     @Slot("QMediaPlayer::Error", str)
     def _player_error(self, error, error_string):
         print(error_string, file=sys.stderr)
+
+    def toggle_play_pause(self):
+        if self._player.playbackState() == QMediaPlayer.PlayingState:
+            self._player.pause()
+        else:
+            self._player.play()
 
     def closeEvent(self, event):
         self._ensure_stopped()

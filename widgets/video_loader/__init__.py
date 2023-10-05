@@ -7,6 +7,7 @@ from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import QWidget, QFileDialog, QVBoxLayout
 from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
 from widgets.video_player import VideoPlayer
+from application import Settings
 
 
 class VideoLoader(QWidget):
@@ -25,7 +26,7 @@ class VideoLoader(QWidget):
                                                            options=options)
         if selected_folder:
             self.main_ui.load_directory.setText(selected_folder)
-            video_files = [f for f in os.listdir(selected_folder) if f.lower().endswith(('.mp4', '.avi', '.mkv'))]
+            video_files = [f for f in os.listdir(selected_folder) if f.lower().endswith(tuple(Settings.SUPPORTED_VIDEO_EXT))]
 
             dialog = VideoSelectionDialog(video_files, self)
             if dialog.exec():

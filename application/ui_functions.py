@@ -11,7 +11,6 @@ GLOBAL_TITLE_BAR = True
 
 
 class UIFunctions(UiBeautify):
-    # MAXIMIZE/RESTORE
     def maximize_restore(self):
         global GLOBAL_STATE
         status = GLOBAL_STATE
@@ -39,16 +38,13 @@ class UIFunctions(UiBeautify):
             self.top_grip.show()
             self.bottom_grip.show()
 
-    # RETURN STATUS
     def returnStatus(self):
         return GLOBAL_STATE
 
-    # SET STATUS
     def setStatus(self, status):
         global GLOBAL_STATE
         GLOBAL_STATE = status
 
-    # TOGGLE MENU
     def ex_toggleMenu(self, enable):
         if enable:
             # GET WIDTH
@@ -70,7 +66,6 @@ class UIFunctions(UiBeautify):
             self.animation.setEasingCurve(QEasingCurve.InOutQuart)
             self.animation.start()
 
-    # TOGGLE LEFT BOX
     def ex_toggleLeftBox(self, enable):
         if enable:
             # GET WIDTH
@@ -98,7 +93,6 @@ class UIFunctions(UiBeautify):
 
             UIFunctions.start_box_animation(self, width, widthRightBox, "left")
 
-    # TOGGLE RIGHT BOX
     def ex_toggleRightBox(self, enable):
         if enable:
             # GET WIDTH
@@ -161,38 +155,31 @@ class UIFunctions(UiBeautify):
         self.group.addAnimation(self.right_box)
         self.group.start()
 
-    # SELECT/DESELECT MENU
-    # SELECT
     @staticmethod
     def selectMenu(getStyle):
         select = getStyle + Settings.MENU_SELECTED_STYLESHEET
         return select
 
-    # DESELECT
     @staticmethod
     def deselectMenu(getStyle):
         deselect = getStyle.replace(Settings.MENU_SELECTED_STYLESHEET, "")
         return deselect
 
-    # START SELECTION
     def selectStandardMenu(self, widget):
         for w in self.topMenu.findChildren(QPushButton):
             if w.objectName() == widget:
                 w.setStyleSheet(UIFunctions.selectMenu(w.styleSheet()))
 
-    # RESET SELECTION
     def resetStyle(self, widget):
         for w in self.topMenu.findChildren(QPushButton):
             if w.objectName() != widget:
                 w.setStyleSheet(UIFunctions.deselectMenu(w.styleSheet()))
 
-    # IMPORT THEMES FILES QSS/CSS
     def theme(self, file, useCustomTheme):
         if useCustomTheme:
             str = open(file, 'r').read()
             self.styleSheet.setStyleSheet(str)
 
-    # START - GUI DEFINITIONS
     def uiDefinitions(self):
         def doubleClickMaximizeRestore(event):
             # IF DOUBLE CLICK CHANGE STATUS

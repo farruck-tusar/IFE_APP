@@ -17,16 +17,9 @@ class App(UiBeautify):
     def launch(self):
         self.setupUi(self)
 
-        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
-        Settings.ENABLE_CUSTOM_TITLE_BAR = False
-
-        # APP NAME
-        title = "IFE Application"
-        description = "IFE APPLICATION"
-
         # APPLY TEXTS
-        self.setWindowTitle(title)
-        self.titleRightInfo.setText(description)
+        self.setWindowTitle(Settings.APP_NAME)
+        self.titleRightInfo.setText(Settings.APP_NAME)
         self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
         self.connect_events()
 
@@ -34,15 +27,8 @@ class App(UiBeautify):
         self.show()
 
         # SET CUSTOM THEME
-        useCustomTheme = False
-        themeFileLight = "resources/themes/theme_light.qss"
-
-        # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFileLight, True)
-
-            # SET HACKS
+        if Settings.ENABLE_CUSTOM_THEME:
+            UIFunctions.theme(self, Settings.THEME_LIGHT_PATH, True)
             AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
@@ -63,7 +49,7 @@ class App(UiBeautify):
         self.btn_exit.clicked.connect(lambda: self.quitApplication())
 
         # LOAD VIDEOS BUTTON CALL
-        video_loader = VideoLoader(self)  # Create an instance of VideoLoader
+        video_loader = VideoLoader(self)
         self.btn_loadVideos.clicked.connect(lambda: video_loader.load_videos())
 
         # EXTRA LEFT BOX
@@ -82,12 +68,10 @@ class App(UiBeautify):
 
         self.btn_widgets.setVisible(False)
 
-    # RESIZE EVENTS
     def resizeEvent(self, event):
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
-    # BUTTONS CLICK
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()

@@ -37,7 +37,7 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._player.playbackStateChanged.connect(self.update_buttons)
 
         self._update_timer = QTimer(self)
-        self._update_timer.timeout.connect(self.update_video_position1)
+        self._update_timer.timeout.connect(self.update_video_position)
         self._update_timer.start(100)
 
     @Slot("QMediaPlayer::PlaybackState")
@@ -73,7 +73,7 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         if self._player.playbackState() != QMediaPlayer.StoppedState:
             self._player.stop()
 
-    def update_video_position1(self):
+    def update_video_position(self):
         if self._player.duration() > 0:
             position = self._player.position()
             duration = self._player.duration()

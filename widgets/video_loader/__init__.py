@@ -39,7 +39,8 @@ class VideoLoader(QWidget):
         thumbnail_container.setStyleSheet("border: 2px solid rgb(33, 37, 43); border-radius: 5px;")
 
         for video_filename in self.selected_videos:
-            video_path = os.path.join(self.main_ui.load_directory.text(), video_filename)
+            path = os.path.join(self.main_ui.load_directory.text(), video_filename)
+            video_path = path.replace('\\', '/')    # supports path for different os
             capture = cv2.VideoCapture(video_path)
 
             if not capture.isOpened():

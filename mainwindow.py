@@ -685,7 +685,7 @@ class Ui_MainWindow(object):
         self.btn_load.setFont(font)
         self.btn_load.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_load.setLayoutDirection(Qt.LeftToRight)
-        self.btn_load.setStyleSheet(u"background-image: url(:/icons/icons/cil-file.png);")
+        self.btn_load.setStyleSheet(u"background-image: url(:/icons/icons/cil-folder.png);")
 
         self.verticalLayout_8.addWidget(self.btn_load)
 

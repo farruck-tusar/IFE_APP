@@ -913,7 +913,7 @@ stackedWidget */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/icons/cil-file.png);</string>
+                   <string notr="true">background-image: url(:/icons/icons/cil-folder.png);</string>
                   </property>
                   <property name="text">
                    <string>Load Videos</string>

@@ -1,13 +1,13 @@
 import os
-import cv2
 
-from PySide6 import QtWidgets, QtCore
-from PySide6.QtCore import QDir
+import cv2
+from PySide6.QtCore import QDir, Qt
 from PySide6.QtGui import QImage, QPixmap
-from PySide6.QtWidgets import QWidget, QFileDialog, QVBoxLayout, QLabel
+from PySide6.QtWidgets import QWidget, QFileDialog, QLabel
+
+from application import Settings
 from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
 from widgets.video_player import VideoPlayer
-from application import Settings
 
 
 class VideoLoader(QWidget):
@@ -26,7 +26,8 @@ class VideoLoader(QWidget):
                                                            options=options)
         if selected_folder:
             self.main_ui.load_directory.setText(selected_folder)
-            video_files = [f for f in os.listdir(selected_folder) if f.lower().endswith(tuple(Settings.SUPPORTED_VIDEO_EXT))]
+            video_files = [f for f in os.listdir(selected_folder) if
+                           f.lower().endswith(tuple(Settings.SUPPORTED_VIDEO_EXT))]
 
             dialog = VideoSelectionDialog(video_files, self)
             if dialog.exec():
@@ -38,7 +39,7 @@ class VideoLoader(QWidget):
 
         for row, video_filename in enumerate(self.selected_videos):
             path = os.path.join(self.main_ui.load_directory.text(), video_filename)
-            video_path = path.replace('\\', '/')    # supports path for different os
+            video_path = path.replace('\\', '/')  # supports path for different os
             capture = cv2.VideoCapture(video_path)
 
             if not capture.isOpened():
@@ -49,7 +50,7 @@ class VideoLoader(QWidget):
 
             if success:
                 thumbnail_widget = QLabel()
-                thumbnail_widget.setMaximumSize(250, 250)  # Adjust size as needed
+                thumbnail_widget.setMaximumSize(300, 300)  # Adjust size as needed
 
                 # Convert OpenCV frame to QImage
                 qimage = QImage(
@@ -62,34 +63,52 @@ class VideoLoader(QWidget):
                 # Convert QImage to QPixmap for thumbnail display
                 pixmap = QPixmap.fromImage(qimage).scaled(
                     thumbnail_widget.size(),
-                    QtCore.Qt.KeepAspectRatio,
-                    QtCore.Qt.SmoothTransformation,
+                    Qt.KeepAspectRatio,
+                    Qt.SmoothTransformation,
                 )
 
                 thumbnail_widget.setPixmap(pixmap)
+                thumbnail_widget.setCursor(Qt.PointingHandCursor)
                 thumbnail_widget.mousePressEvent = lambda event, path=video_path: self.open_video_player(path)
+                thumbnail_widget.setStyleSheet("""
+                       QLabel {
+                           background-color: rgb(33, 37, 43);
+                           padding: 10px;
+                           margin: 10px;
+                           margin-right: 0px;
+                           border: 1px solid #ccc;
+                           border-radius: 5px;
+                       }
+                   """)
 
                 video_label = QLabel()
-                video_length = str(capture.get(cv2.CAP_PROP_FRAME_COUNT))
-                fps = str(capture.get(cv2.CAP_PROP_FPS))
+                total_frames = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
+                fps = int(capture.get(cv2.CAP_PROP_FPS))
+                video_length_seconds = total_frames / fps
+                if video_length_seconds >= 60:
+                    video_length_minutes = int(video_length_seconds // 60)
+                    video_length_seconds = int(video_length_seconds % 60)
+                    video_length_text = "{} minutes {} seconds".format(video_length_minutes, video_length_seconds)
+                else:
+                    video_length_text = "{} seconds".format(int(video_length_seconds))
+
+                video_format = str(video_path.split('.')[-1])
                 fourcc = int(capture.get(cv2.CAP_PROP_FOURCC))
-                video_format = "".join([chr((fourcc >> 8 * i) & 0xFF) for i in range(4)])
-                video_label.setText("File Name: " + video_filename +
-                                    "\nLength: " + video_length +
-                                    "\nFPS: " + fps +
-                                    "\nFormat: " + video_format)
-                thumbnail_widget.setStyleSheet("""
-                                QLabel {
-                                    background-color: #e0e0e0;
-                                    padding: 10px;
-                                    border: 1px solid #ccc;
-                                }
-                            """)
+                video_codec = "".join([chr((fourcc >> 8 * i) & 0xFF) for i in range(4)])
+
+                label_text = "File Name: {}\nLength: {}\nFPS: {}\nVideo format: {}\nVideo codec: {}".format(
+                    video_filename, video_length_text, fps, video_format, video_codec)
+                video_label.setText(label_text)
                 video_label.setStyleSheet("""
-                                QLabel {
-                                    background-color: #000000;
-                                }
-                            """)
+                        QLabel {
+                            background-color: rgb(33, 37, 43);
+                            padding: 10px;
+                            margin: 10px;
+                            margin-left: 0px;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                        }
+                    """)
 
                 self.video_preview_grid.addWidget(thumbnail_widget, row, 0)
                 self.video_preview_grid.addWidget(video_label, row, 1)

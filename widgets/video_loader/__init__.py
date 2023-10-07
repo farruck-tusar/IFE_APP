@@ -4,7 +4,7 @@ import cv2
 from PySide6 import QtWidgets, QtCore
 from PySide6.QtCore import QDir
 from PySide6.QtGui import QImage, QPixmap
-from PySide6.QtWidgets import QWidget, QFileDialog, QVBoxLayout
+from PySide6.QtWidgets import QWidget, QFileDialog, QVBoxLayout, QLabel
 from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
 from widgets.video_player import VideoPlayer
 from application import Settings
@@ -35,11 +35,8 @@ class VideoLoader(QWidget):
 
     def update_video_preview_grid(self):
         self.clear_video_preview_grid()
-        thumbnail_container = QtWidgets.QWidget()
-        thumbnail_layout = QVBoxLayout(thumbnail_container)
-        thumbnail_container.setStyleSheet("border: 2px solid rgb(33, 37, 43); border-radius: 5px;")
 
-        for video_filename in self.selected_videos:
+        for row, video_filename in enumerate(self.selected_videos):
             path = os.path.join(self.main_ui.load_directory.text(), video_filename)
             video_path = path.replace('\\', '/')    # supports path for different os
             capture = cv2.VideoCapture(video_path)
@@ -51,8 +48,8 @@ class VideoLoader(QWidget):
             success, frame = capture.read()
 
             if success:
-                thumbnail_widget = QtWidgets.QLabel()
-                thumbnail_widget.setMaximumSize(150, 150)  # Adjust size as needed
+                thumbnail_widget = QLabel()
+                thumbnail_widget.setMaximumSize(250, 250)  # Adjust size as needed
 
                 # Convert OpenCV frame to QImage
                 qimage = QImage(
@@ -72,16 +69,32 @@ class VideoLoader(QWidget):
                 thumbnail_widget.setPixmap(pixmap)
                 thumbnail_widget.mousePressEvent = lambda event, path=video_path: self.open_video_player(path)
 
-                video_label = QtWidgets.QLabel()
-                video_label.setText(video_filename)
-                video_label.setMaximumSize(150, 30)
+                video_label = QLabel()
+                video_length = str(capture.get(cv2.CAP_PROP_FRAME_COUNT))
+                fps = str(capture.get(cv2.CAP_PROP_FPS))
+                fourcc = int(capture.get(cv2.CAP_PROP_FOURCC))
+                video_format = "".join([chr((fourcc >> 8 * i) & 0xFF) for i in range(4)])
+                video_label.setText("File Name: " + video_filename +
+                                    "\nLength: " + video_length +
+                                    "\nFPS: " + fps +
+                                    "\nFormat: " + video_format)
+                thumbnail_widget.setStyleSheet("""
+                                QLabel {
+                                    background-color: #e0e0e0;
+                                    padding: 10px;
+                                    border: 1px solid #ccc;
+                                }
+                            """)
+                video_label.setStyleSheet("""
+                                QLabel {
+                                    background-color: #000000;
+                                }
+                            """)
 
-                thumbnail_layout.addWidget(video_label)
-                thumbnail_layout.addWidget(thumbnail_widget)
+                self.video_preview_grid.addWidget(thumbnail_widget, row, 0)
+                self.video_preview_grid.addWidget(video_label, row, 1)
 
             capture.release()
-
-            self.video_preview_grid.addWidget(thumbnail_container)
 
     def clear_video_preview_grid(self):
         for i in reversed(range(self.video_preview_grid.count())):

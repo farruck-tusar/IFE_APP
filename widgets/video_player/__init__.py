@@ -83,7 +83,8 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
             self.ui.slider_time.setMaximum(duration)
             self.ui.slider_time.setValue(position)
 
-    def format_time(self, milliseconds):
+    @staticmethod
+    def format_time(milliseconds):
         total_seconds = milliseconds // 1000
         milliseconds_remainder = milliseconds % 1000
         seconds = total_seconds % 60

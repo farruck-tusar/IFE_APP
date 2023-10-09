@@ -47,10 +47,7 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         if state == QMediaPlayer.PlayingState:
             self._play_action.setText("Pause")
             self._play_action.setIcon(self._pause_icon)
-        elif state == QMediaPlayer.PausedState:
-            self._play_action.setText("Play")
-            self._play_action.setIcon(self._play_icon)
-        elif state == QMediaPlayer.StoppedState:
+        else:
             self._play_action.setText("Play")
             self._play_action.setIcon(self._play_icon)
 

@@ -27,12 +27,18 @@ class Ui_videoPlayer(object):
         if not videoPlayer.objectName():
             videoPlayer.setObjectName(u"videoPlayer")
         videoPlayer.resize(1040, 850)
-        videoPlayer.setStyleSheet(u"#videoPlayer QPushButton, QLineEdit, QSpinBox,  QDateEdit, QComboBox {\n"
+        videoPlayer.setStyleSheet(u"#videoPlayer QPushButton, QLineEdit, QSpinBox, QDoubleSpinBox, QDateEdit, QComboBox {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;\n"
 "	padding:5px;\n"
 "}\n"
-"#videoPlayer QPushButton:hover, QLineEdit:hover, QSpinBox:hover, QDateEdit:hover, QComboBox:hover {\n"
+"#sidebar QPushButton {\n"
+"	padding:0px;\n"
+"}\n"
+"#scrollArea {\n"
+"	border: 0px;\n"
+"}\n"
+"#videoPlayer QPushButton:hover, QLineEdit:hover, QSpinBox:hover, QDoubleSpinBox:hover, QDateEdit:hover, QComboBox:hover {\n"
 "	border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
 "#videoPlayer QPushButton:pressed, QComboBox:pressed {\n"

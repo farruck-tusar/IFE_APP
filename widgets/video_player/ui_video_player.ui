@@ -14,12 +14,18 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#videoPlayer QPushButton, QLineEdit, QSpinBox,  QDateEdit, QComboBox {
+   <string notr="true">#videoPlayer QPushButton, QLineEdit, QSpinBox, QDoubleSpinBox, QDateEdit, QComboBox {
 	border: 2px solid rgb(52, 59, 72);
 	border-radius: 5px;
 	padding:5px;
 }
-#videoPlayer QPushButton:hover, QLineEdit:hover, QSpinBox:hover, QDateEdit:hover, QComboBox:hover {
+#sidebar QPushButton {
+	padding:0px;
+}
+#scrollArea {
+	border: 0px;
+}
+#videoPlayer QPushButton:hover, QLineEdit:hover, QSpinBox:hover, QDoubleSpinBox:hover, QDateEdit:hover, QComboBox:hover {
 	border: 2px solid rgb(61, 70, 86);
 }
 #videoPlayer QPushButton:pressed, QComboBox:pressed {

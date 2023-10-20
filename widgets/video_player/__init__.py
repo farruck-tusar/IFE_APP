@@ -1,9 +1,11 @@
 import sys
+
 from PySide6.QtCore import Slot, QTimer
 from PySide6.QtGui import QIcon
 from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from PySide6.QtWidgets import QWidget, QVBoxLayout
+
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 
 

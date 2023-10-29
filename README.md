@@ -31,3 +31,11 @@ python setup.py build
 > ```console
 > pyside6-rcc resources.qrc -o resources_rc.py
 > ```
+
+# Integrate YOLO
+> **YOLOv5**: cloning and installing requirements
+> ```console
+> git clone https://github.com/ultralytics/yolov5
+> cd yolov5
+> pip install -U -r requirements.txt
+> ```

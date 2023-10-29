@@ -1,4 +1,6 @@
+import subprocess
 import sys
+import os
 
 from PySide6.QtCore import Slot, QTimer
 from PySide6.QtGui import QIcon
@@ -9,6 +11,25 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 
 
+def run_yolov5_detection(video_path):
+    # Replace the command with the actual YOLOv5 detection script command.
+    # Here we assume 'detect.py' is in the same directory as the script.
+    ROOT_DIR = os.path.abspath(os.curdir)
+    print(ROOT_DIR)
+    print(video_path)
+    command = ["python", ROOT_DIR + "/yolov5/detect.py", "--source", video_path, "--weights", ROOT_DIR + "/yolov5/yolov5s.pt"]
+
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+
+    output, errors = process.communicate()
+
+    if process.returncode == 0:
+        print("YOLOv5 Detection Successful.")
+    else:
+        print("YOLOv5 Detection Failed.")
+        print(errors)
+
+
 class VideoPlayer(Ui_videoPlayer, QWidget):
     def __init__(self, main_ui, video_path):
         super().__init__(main_ui)
@@ -16,6 +37,7 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self.ui.setupUi(self)
 
         self.ui.btn_back.clicked.connect(lambda: main_ui.stackedWidget.setCurrentWidget(main_ui.page_loadVideos))
+        self.ui.btn_process.clicked.connect(lambda: run_yolov5_detection(video_path))
 
         self._video_widget = QVideoWidget()
         QVBoxLayout(self.ui.frame_player).addWidget(self._video_widget)

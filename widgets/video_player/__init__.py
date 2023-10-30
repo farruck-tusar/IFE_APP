@@ -1,6 +1,6 @@
+import os
 import subprocess
 import sys
-import os
 
 from PySide6.QtCore import Slot, QTimer
 from PySide6.QtGui import QIcon
@@ -8,26 +8,42 @@ from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 
+from application import Settings
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 
 
 def run_yolov5_detection(video_path):
-    # Replace the command with the actual YOLOv5 detection script command.
-    # Here we assume 'detect.py' is in the same directory as the script.
-    ROOT_DIR = os.path.abspath(os.curdir)
-    print(ROOT_DIR)
-    print(video_path)
-    command = ["python", ROOT_DIR + "/yolov5/detect.py", "--source", video_path, "--weights", ROOT_DIR + "/yolov5/yolov5s.pt"]
+    venv_directory = Settings.VENV_DIR
+    activate_script = 'bin/activate' if sys.platform != 'win32' else 'Scripts\\activate'
+    venv_activate_script = os.path.join(venv_directory, activate_script)
 
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+    if os.path.exists(venv_directory):
+        activate_cmd = f'source {venv_activate_script}' if sys.platform != 'win32' else venv_activate_script
+        # subprocess.run(activate_cmd, shell=True)
 
-    output, errors = process.communicate()
+        command = ["python",
+                   os.path.join(Settings.YOLO_DIR, "detect.py"),
+                   "--source",
+                   video_path,
+                   "--weights",
+                   Settings.YOLO_WEIGHT_DIR]
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
 
-    if process.returncode == 0:
-        print("YOLOv5 Detection Successful.")
+        output, errors = process.communicate()
+
+        if process.returncode == 0:
+            print("YOLOv5 Detection Successful.")
+        else:
+            print("YOLOv5 Detection Failed.")
+            print(errors)
+
+        # Deactivate the virtual environment
+        # if sys.platform == 'win32':
+        #     subprocess.run('deactivate', shell=True)
+        # else:
+        #     subprocess.run('deactivate', shell=True)
     else:
-        print("YOLOv5 Detection Failed.")
-        print(errors)
+        print(f"Virtual environment activate script not found at {venv_activate_script}")
 
 
 class VideoPlayer(Ui_videoPlayer, QWidget):

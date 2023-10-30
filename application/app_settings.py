@@ -1,6 +1,14 @@
+import os
+
+
 class Settings(object):
 
     APP_NAME = "IFE APPLICATION"
+
+    ROOT_DIR = os.path.abspath(os.curdir)
+    VENV_DIR = os.path.join(ROOT_DIR, 'venv')
+    YOLO_DIR = os.path.join(ROOT_DIR, 'yolov5')
+    YOLO_WEIGHT_DIR = os.path.join(YOLO_DIR, 'yolov5s.pt')
 
     ENABLE_CUSTOM_THEME = False         # USE "True" FOR LIGHT THEME, "False" FOR DARK THEME
     ENABLE_CUSTOM_TITLE_BAR = False     # USE "True" FOR WINDOWS, "False" FOR MAC OR LINUX

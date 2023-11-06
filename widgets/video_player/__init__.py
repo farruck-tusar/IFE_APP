@@ -18,10 +18,21 @@ def run_yolov5_detection(video_path):
     python_path = 'bin/python' if sys.platform != 'win32' else 'Scripts\\python'
     venv_python_path = os.path.join(venv_directory, python_path)
 
+    documents_folder = os.path.expanduser("~/Documents")
+    if not os.path.exists(documents_folder):
+        print("Documents folder not found.")
+        return
+
+    output_path = os.path.join(documents_folder, "IFE_RESULTS")
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+
     command = [venv_python_path,
                os.path.join(Settings.YOLO_DIR, "detect.py"),
                "--source",
                video_path,
+               "--project",
+               output_path,
                "--weights",
                Settings.YOLO_WEIGHT_DIR]
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)

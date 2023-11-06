@@ -14,36 +14,25 @@ from widgets.video_player.ui_video_player import Ui_videoPlayer
 
 def run_yolov5_detection(video_path):
     venv_directory = Settings.VENV_DIR
-    activate_script = 'bin/activate' if sys.platform != 'win32' else 'Scripts\\activate'
-    venv_activate_script = os.path.join(venv_directory, activate_script)
 
-    if os.path.exists(venv_directory):
-        activate_cmd = f'source {venv_activate_script}' if sys.platform != 'win32' else venv_activate_script
-        # subprocess.run(activate_cmd, shell=True)
+    python_path = 'bin/python' if sys.platform != 'win32' else 'Scripts\\python'
+    venv_python_path = os.path.join(venv_directory, python_path)
 
-        command = ["python",
-                   os.path.join(Settings.YOLO_DIR, "detect.py"),
-                   "--source",
-                   video_path,
-                   "--weights",
-                   Settings.YOLO_WEIGHT_DIR]
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+    command = [venv_python_path,
+               os.path.join(Settings.YOLO_DIR, "detect.py"),
+               "--source",
+               video_path,
+               "--weights",
+               Settings.YOLO_WEIGHT_DIR]
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
 
-        output, errors = process.communicate()
+    output, errors = process.communicate()
 
-        if process.returncode == 0:
-            print("YOLOv5 Detection Successful.")
-        else:
-            print("YOLOv5 Detection Failed.")
-            print(errors)
-
-        # Deactivate the virtual environment
-        # if sys.platform == 'win32':
-        #     subprocess.run('deactivate', shell=True)
-        # else:
-        #     subprocess.run('deactivate', shell=True)
+    if process.returncode == 0:
+        print("YOLOv5 Detection Successful.")
     else:
-        print(f"Virtual environment activate script not found at {venv_activate_script}")
+        print("YOLOv5 Detection Failed.")
+        print(errors)
 
 
 class VideoPlayer(Ui_videoPlayer, QWidget):

@@ -1,3 +1,6 @@
+import logging
+import os
+
 from PySide6.QtWidgets import QHeaderView, QMessageBox
 
 from mainwindow import Ui_MainWindow
@@ -22,6 +25,7 @@ class App(UiBeautify):
         self.titleRightInfo.setText(Settings.APP_NAME)
         self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
         self.connect_events()
+        self.logging()
 
         # SHOW APP UI
         self.show()
@@ -34,6 +38,32 @@ class App(UiBeautify):
         # SET HOME PAGE AND SELECT MENU
         self.stackedWidget.setCurrentWidget(self.page_home)
         self.btn_home.setStyleSheet(UIFunctions.selectMenu(self.btn_home.styleSheet()))
+
+    def logging(self):
+        log_format = "%(asctime)s [%(levelname)s] %(message)s"
+
+        if not os.path.exists(Settings.OUTPUT_DIR):
+            print("Output directory not found")
+            return
+
+        output_path = Settings.OUTPUT_DIR + Settings.OUTPUT_FOLDER_NAME
+        if not os.path.exists(output_path):
+            print("Output folder not exist, creating..")
+            os.mkdir(output_path)
+
+        log_file = output_path + "/log_file.log"
+        if os.path.exists(log_file):
+            print("log file already exist, recreating..")
+            os.remove(log_file)
+
+        logging.basicConfig(
+            level=logging.INFO,  # Set the desired log level (INFO, DEBUG, ERROR, etc.)
+            format=log_format,
+            handlers=[
+                logging.FileHandler(log_file),
+                logging.StreamHandler()
+            ]
+        )
 
     def connect_events(self):
         # TOGGLE MENU

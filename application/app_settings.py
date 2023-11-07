@@ -9,6 +9,8 @@ class Settings(object):
     VENV_DIR = os.path.join(ROOT_DIR, 'venv')
     YOLO_DIR = os.path.join(ROOT_DIR, 'yolov5')
     YOLO_WEIGHT_DIR = os.path.join(YOLO_DIR, 'yolov5s.pt')
+    OUTPUT_DIR = os.path.expanduser("~/Documents")
+    OUTPUT_FOLDER_NAME = "/IFE_RESULTS"
 
     ENABLE_CUSTOM_THEME = False         # USE "True" FOR LIGHT THEME, "False" FOR DARK THEME
     ENABLE_CUSTOM_TITLE_BAR = False     # USE "True" FOR WINDOWS, "False" FOR MAC OR LINUX

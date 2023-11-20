@@ -46,14 +46,15 @@ class App(UiBeautify):
             print("Output directory not found")
             return
 
-        output_path = Settings.OUTPUT_DIR + Settings.OUTPUT_FOLDER_NAME
+        output_path = os.path.join(Settings.OUTPUT_DIR, Settings.OUTPUT_FOLDER_NAME)
         if not os.path.exists(output_path):
             print("Output folder not exist, creating..")
             os.mkdir(output_path)
 
-        log_file = output_path + "/log_file.log"
+        log_file = os.path.join(output_path,"log_file.log")
         if os.path.exists(log_file):
             print("log file already exist, recreating..")
+            os.chmod(log_file, 0o777)
             os.remove(log_file)
 
         logging.basicConfig(

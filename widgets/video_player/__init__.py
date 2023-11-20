@@ -1,6 +1,5 @@
 import logging
 import os
-import subprocess
 import sys
 
 from PySide6.QtCore import Slot, QTimer
@@ -11,6 +10,7 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout
 
 from application import Settings
 from widgets.video_player.ui_video_player import Ui_videoPlayer
+from yolov5 import detect
 
 
 def run_yolov5_detection(video_path):
@@ -22,39 +22,25 @@ def run_yolov5_detection(video_path):
     python_path = 'bin/python' if sys.platform != 'win32' else 'Scripts\\python'
     venv_python_path = os.path.join(venv_directory, python_path)
 
-    output_path = Settings.OUTPUT_DIR + Settings.OUTPUT_FOLDER_NAME
-
-    logging.info("[START] venv activation")
-    activate_cmd = f'source {venv_activate_script}' if sys.platform != 'win32' else venv_activate_script
-    subprocess.run(activate_cmd, shell=True)
-    logging.info("[END] venv activation")
-
-    command = [venv_python_path,
-               os.path.join(Settings.YOLO_DIR, "detect.py"),
-               "--source",
-               video_path,
-               "--project",
-               output_path,
-               "--weights",
-               Settings.YOLO_WEIGHT_DIR]
+    # logging.info("[START] venv activation")
+    # activate_cmd = f'source {venv_activate_script}' if sys.platform != 'win32' else venv_activate_script
+    # subprocess.run(activate_cmd, shell=True)
+    # logging.info("[END] venv activation")
 
     logging.info("[START] YOLOv5 detection")
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
-    output, errors = process.communicate()
-
-    if process.returncode == 0:
-        logging.info("YOLOv5 Detection Successful")
-    else:
-        logging.error("YOLOv5 Detection Failed" + errors)
-
+    detect.run(source=video_path,
+               weights=os.path.join(Settings.YOLO_WEIGHT_DIR),
+               project=os.path.join(Settings.OUTPUT_DIR, Settings.OUTPUT_FOLDER_NAME),
+               conf_thres=0.5,
+               save_txt=True)
     logging.info("[END] YOLOv5 detection")
 
-    logging.info("[START] venv deactivation")
-    if sys.platform == 'win32':
-        subprocess.run('deactivate', shell=True)
-    else:
-        subprocess.run('deactivate', shell=True)
-    logging.info("[END] venv deactivation")
+    # logging.info("[START] venv deactivation")
+    # if sys.platform == 'win32':
+    #     subprocess.run('deactivate', shell=True)
+    # else:
+    #     subprocess.run('deactivate', shell=True)
+    # logging.info("[END] venv deactivation")
 
 
 class VideoPlayer(Ui_videoPlayer, QWidget):

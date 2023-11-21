@@ -33,9 +33,33 @@ python setup.py build
 > ```
 
 # Integrate YOLO
-> **YOLOv5**: cloning and installing requirements
-> ```console
+**YOLOv5**: cloning and installing requirements
+
 > git clone https://github.com/ultralytics/yolov5
+
 > cd yolov5
+
 > pip install -U -r requirements.txt
-> ```
+
+
+# Packaging(cx_Freeze)
+***cx_Freeze*** normally produces a folder containing an executable file for your program, along with the shared libraries (DLLs or .so files) needed to run it. You can make a simple Windows installer using a setup script with the bdist_msi option, or a Mac disk image with bdist_dmg.
+
+Details: https://cx-freeze.readthedocs.io/en/6.10/index.html
+
+***Installation***
+
+In a virtual environment, install by issuing the command:
+
+> pip install --upgrade cx_Freeze
+
+***Commands***
+> python setup.py build
+
+> python setup.py bdist_msi
+
+*On Mac OS X, we can use bdist_dmg to build a Mac disk image. It creates an application bundle, then packages it into a DMG disk image suitable for distribution and installation.
+
+> python setup.py bdist_mac
+
+*This command is available on Mac OS X systems, to create a Mac application bundle (a .app directory).

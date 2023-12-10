@@ -8,39 +8,8 @@ from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 
-from application import Settings
 from widgets.video_player.ui_video_player import Ui_videoPlayer
-from yolov5 import detect
-
-
-def run_yolov5_detection(video_path):
-    venv_directory = Settings.VENV_DIR
-
-    activate_script = 'bin/activate' if sys.platform != 'win32' else 'Scripts\\activate'
-    venv_activate_script = os.path.join(venv_directory, activate_script)
-
-    python_path = 'bin/python' if sys.platform != 'win32' else 'Scripts\\python'
-    venv_python_path = os.path.join(venv_directory, python_path)
-
-    # logging.info("[START] venv activation")
-    # activate_cmd = f'source {venv_activate_script}' if sys.platform != 'win32' else venv_activate_script
-    # subprocess.run(activate_cmd, shell=True)
-    # logging.info("[END] venv activation")
-
-    logging.info("[START] YOLOv5 detection")
-    detect.run(source=video_path,
-               weights=os.path.join(Settings.YOLO_WEIGHT_DIR),
-               project=os.path.join(Settings.OUTPUT_DIR, Settings.OUTPUT_FOLDER_NAME),
-               conf_thres=0.5,
-               save_txt=True)
-    logging.info("[END] YOLOv5 detection")
-
-    # logging.info("[START] venv deactivation")
-    # if sys.platform == 'win32':
-    #     subprocess.run('deactivate', shell=True)
-    # else:
-    #     subprocess.run('deactivate', shell=True)
-    # logging.info("[END] venv deactivation")
+from widgets.video_player.yolo_detection import YoloDetection
 
 
 class VideoPlayer(Ui_videoPlayer, QWidget):
@@ -50,7 +19,7 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self.ui.setupUi(self)
 
         self.ui.btn_back.clicked.connect(lambda: main_ui.stackedWidget.setCurrentWidget(main_ui.page_loadVideos))
-        self.ui.btn_process.clicked.connect(lambda: run_yolov5_detection(video_path))
+        self.ui.btn_process.clicked.connect(lambda: YoloDetection.yolov5_detect(video_path))
 
         self._video_widget = QVideoWidget()
         QVBoxLayout(self.ui.frame_player).addWidget(self._video_widget)

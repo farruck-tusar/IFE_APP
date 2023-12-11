@@ -46,6 +46,9 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._update_timer.timeout.connect(self.update_video_position)
         self._update_timer.start(100)
 
+        # Zoom features
+        self.ui.slider_zoom.valueChanged.connect(self.update_zoom)
+
     @Slot("QMediaPlayer::PlaybackState")
     def update_buttons(self, state):
         self._stop_action.setEnabled(state != QMediaPlayer.StoppedState)
@@ -94,3 +97,9 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         minutes = (total_seconds // 60) % 60
         hours = total_seconds // 3600
         return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds_remainder:03}"
+
+    def update_zoom(self):
+        zoom_value = self.ui.slider_zoom.value()
+        print(zoom_value)
+        self._video_widget.setGeometry(0, 0, self._video_widget.width() * zoom_value / 100,
+                                       self._video_widget.height() * zoom_value / 100)

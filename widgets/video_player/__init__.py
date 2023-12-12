@@ -1,12 +1,10 @@
-import logging
-import os
 import sys
 
 from PySide6.QtCore import Slot, QTimer
 from PySide6.QtGui import QIcon
 from PySide6.QtMultimedia import QMediaPlayer
-from PySide6.QtMultimediaWidgets import QVideoWidget
-from PySide6.QtWidgets import QWidget, QVBoxLayout
+from PySide6.QtMultimediaWidgets import QGraphicsVideoItem
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QGraphicsView, QGraphicsScene
 
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 from widgets.video_player.yolo_detection import YoloDetection
@@ -21,13 +19,17 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self.ui.btn_back.clicked.connect(lambda: main_ui.stackedWidget.setCurrentWidget(main_ui.page_loadVideos))
         self.ui.btn_process.clicked.connect(lambda: YoloDetection.yolov5_detect(video_path))
 
-        self._video_widget = QVideoWidget()
-        QVBoxLayout(self.ui.frame_player).addWidget(self._video_widget)
+        self._video_view = QGraphicsView(self.ui.frame_player)
+        layout = QVBoxLayout(self.ui.frame_player)
+        layout.addWidget(self._video_view)
 
         self._player = QMediaPlayer()
         self._player.errorOccurred.connect(self._player_error)
 
-        self._player.setVideoOutput(self._video_widget)
+        self._video_item = QGraphicsVideoItem()
+        self._video_view.setScene(QGraphicsScene(self))
+        self._video_view.scene().addItem(self._video_item)
+        self._player.setVideoOutput(self._video_item)
         self._player.setSource(video_path)
 
         # Initialize icons
@@ -47,7 +49,8 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._update_timer.start(100)
 
         # Zoom features
-        self.ui.slider_zoom.valueChanged.connect(self.update_zoom)
+        self._zoom_factor = 1.0
+        self.ui.slider_zoom.valueChanged.connect(self.zoom_in)
 
     @Slot("QMediaPlayer::PlaybackState")
     def update_buttons(self, state):
@@ -98,8 +101,6 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         hours = total_seconds // 3600
         return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds_remainder:03}"
 
-    def update_zoom(self):
-        zoom_value = self.ui.slider_zoom.value()
-        print(zoom_value)
-        self._video_widget.setGeometry(0, 0, self._video_widget.width() * zoom_value / 100,
-                                       self._video_widget.height() * zoom_value / 100)
+    def zoom_in(self):
+        self._zoom_factor *= 1.1
+        self._video_item.setScale(self._zoom_factor)

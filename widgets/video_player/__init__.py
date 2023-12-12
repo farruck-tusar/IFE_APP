@@ -50,7 +50,7 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
 
         # Zoom features
         self._zoom_factor = 1.0
-        self.ui.slider_zoom.valueChanged.connect(self.zoom_in)
+        self.ui.slider_zoom.valueChanged.connect(self.update_zoom)
 
     @Slot("QMediaPlayer::PlaybackState")
     def update_buttons(self, state):
@@ -101,6 +101,6 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         hours = total_seconds // 3600
         return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds_remainder:03}"
 
-    def zoom_in(self):
-        self._zoom_factor *= 1.1
+    def update_zoom(self, value):
+        self._zoom_factor = 1.0 + value / 100 * 2.0
         self._video_item.setScale(self._zoom_factor)

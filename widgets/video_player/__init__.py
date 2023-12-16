@@ -51,6 +51,7 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         # Zoom features
         self._zoom_factor = 1.0
         self.ui.slider_zoom.valueChanged.connect(self.update_zoom)
+        self.ui.label_zoom.setText("1.00x")
 
     @Slot("QMediaPlayer::PlaybackState")
     def update_buttons(self, state):
@@ -104,3 +105,4 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
     def update_zoom(self, value):
         self._zoom_factor = 1.0 + value / 100 * 2.0
         self._video_item.setScale(self._zoom_factor)
+        self.ui.label_zoom.setText(f"{self._zoom_factor:.2f}x")

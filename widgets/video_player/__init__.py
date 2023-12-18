@@ -6,6 +6,7 @@ from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QGraphicsVideoItem
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QGraphicsView, QGraphicsScene
 
+from application import Settings
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 from widgets.video_player.yolo_detection import YoloDetection
 
@@ -17,7 +18,10 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self.ui.setupUi(self)
 
         self.ui.btn_back.clicked.connect(lambda: main_ui.stackedWidget.setCurrentWidget(main_ui.page_loadVideos))
-        self.ui.btn_process.clicked.connect(lambda: YoloDetection.yolov5_detect(video_path))
+        if Settings.YOLO_VERSION == "yolov5":
+            self.ui.btn_process.clicked.connect(lambda: YoloDetection.yolov5_detect(video_path))
+        else:
+            self.ui.btn_process.clicked.connect(lambda: YoloDetection.yolov8_detect(video_path))
 
         self._video_view = QGraphicsView(self.ui.frame_player)
         layout = QVBoxLayout(self.ui.frame_player)

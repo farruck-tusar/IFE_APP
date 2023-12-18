@@ -9,6 +9,7 @@ class Settings(object):
     VENV_DIR = os.path.join(ROOT_DIR, 'venv')
     OUTPUT_DIR = os.path.expanduser("~/Documents")
     OUTPUT_FOLDER_NAME = "IFE_OUTPUT"
+    YOLO_VERSION="yolov8"
     WEIGHT_FILE_NAME = "yolov5s.pt"
     YOLO_WEIGHT_DIR = os.path.join(OUTPUT_DIR, OUTPUT_FOLDER_NAME, WEIGHT_FILE_NAME)
 

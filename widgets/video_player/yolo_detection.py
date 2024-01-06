@@ -9,13 +9,10 @@ from yolov5 import detect
 
 class YoloDetection():
     def yolov5_detect(video_path):
-        venv_directory = os.path.join(Settings.VENV_DIR, "_yolov5")
+        venv_directory = Settings.VENV_DIR
 
         activate_script = 'bin/activate' if sys.platform != 'win32' else 'Scripts\\activate'
         venv_activate_script = os.path.join(venv_directory, activate_script)
-
-        python_path = 'bin/python' if sys.platform != 'win32' else 'Scripts\\python'
-        venv_python_path = os.path.join(venv_directory, python_path)
 
         logging.info("[START] venv activation")
         activate_cmd = f'source {venv_activate_script}' if sys.platform != 'win32' else venv_activate_script
@@ -38,13 +35,10 @@ class YoloDetection():
         logging.info("[END] venv deactivation")
 
     def yolov8_detect(video_path):
-        venv_directory = os.path.join(Settings.VENV_DIR, "_yolov8")
+        venv_directory = Settings.VENV_DIR
 
         activate_script = 'bin/activate' if sys.platform != 'win32' else 'Scripts\\activate'
         venv_activate_script = os.path.join(venv_directory, activate_script)
-
-        python_path = 'bin/python' if sys.platform != 'win32' else 'Scripts\\python'
-        venv_python_path = os.path.join(venv_directory, python_path)
 
         logging.info("[START] venv activation")
         activate_cmd = f'source {venv_activate_script}' if sys.platform != 'win32' else venv_activate_script

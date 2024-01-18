@@ -18,10 +18,6 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self.ui.setupUi(self)
 
         self.ui.btn_back.clicked.connect(lambda: main_ui.stackedWidget.setCurrentWidget(main_ui.page_loadVideos))
-        if Settings.YOLO_VERSION == "yolov5":
-            self.ui.btn_process.clicked.connect(lambda: YoloDetection.yolov5_detect(video_path))
-        else:
-            self.ui.btn_process.clicked.connect(lambda: YoloDetection.yolov8_detect(video_path))
 
         self._video_view = QGraphicsView(self.ui.frame_player)
         layout = QVBoxLayout(self.ui.frame_player)
@@ -56,6 +52,25 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._zoom_factor = 1.0
         self.ui.slider_zoom.valueChanged.connect(self.update_zoom)
         self.ui.label_zoom.setText("1.00x")
+
+        # Select Model Filter
+        self.ui.combo_filter.addItem("YOLOv5 Model")
+        self.ui.combo_filter.addItem("YOLOv8 Model")
+        self.ui.combo_filter.addItem("Burn Mark Detection")
+
+        self.ui.btn_process.clicked.connect(lambda: self.handle_button_click(video_path))
+
+    def handle_button_click(self, video_path):
+        selected_option = self.ui.combo_filter.currentText()
+        print(f"Selected option: {selected_option}")
+        if selected_option == "YOLOv5 Model":
+            print(selected_option)
+            YoloDetection.yolov5_detect(video_path)
+        elif selected_option == "YOLOv8 Model":
+            print(selected_option)
+            YoloDetection.yolov8_detect(video_path)
+        else:
+            print("Burn Mark Detection")
 
     @Slot("QMediaPlayer::PlaybackState")
     def update_buttons(self, state):

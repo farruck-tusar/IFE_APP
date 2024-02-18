@@ -81,18 +81,32 @@ Details: https://cx-freeze.readthedocs.io/en/6.10/index.html
 
 ***Installation***
 
-In a virtual environment, install by issuing the command:
+In add cx_Freeze into your virtual environment, install it by the command:
 
-> pip install --upgrade cx_Freeze
+```console
+pip install --upgrade cx_Freeze
+```
 
 ***Commands***
-> python setup.py build
+To generate the build files for packaging, use any of the commands below:
 
-> python setup.py bdist_msi
+```console
+python setup.py build
+```
 
-*On Mac OS X, we can use bdist_dmg to build a Mac disk image. It creates an application bundle, then packages it into a DMG disk image suitable for distribution and installation.
+```console
+python setup.py build_exe
+```
 
-> python setup.py bdist_mac
+```console
+python setup.py bdist_msi
+```
 
-*This command is available on Mac OS X systems, to create a Mac application bundle (a .app directory).
+For Mac OS X, we can use bdist_dmg to build a Mac disk image. It creates an application bundle, then packages it into a DMG disk image suitable for distribution and installation.
+This command is available on Mac OS X systems, to create a Mac application bundle (a .app directory).
+
+```console
+python setup.py bdist_mac
+```
+
 </div>

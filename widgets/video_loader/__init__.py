@@ -6,7 +6,6 @@ from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import QWidget, QFileDialog, QLabel
 
 from application import Settings
-from widgets.video_loader.dialog_videoSelection import VideoSelectionDialog
 from widgets.video_player import VideoPlayer
 
 
@@ -29,13 +28,17 @@ class VideoLoader(QWidget):
             video_files = [f for f in os.listdir(selected_folder) if
                            f.lower().endswith(tuple(Settings.SUPPORTED_VIDEO_EXT))]
 
-            dialog = VideoSelectionDialog(video_files, self)
-            if dialog.exec():
-                self.selected_videos = dialog.selected_videos
-                self.update_video_preview_grid()
+            self.selected_videos = video_files
+            self.update_video_preview_grid()
 
     def update_video_preview_grid(self):
         self.clear_video_preview_grid()
+
+        if not self.selected_videos:
+            no_videos_label = QLabel("No supported videos found in the selected folder")
+            no_videos_label.setAlignment(Qt.AlignCenter)
+            self.video_preview_grid.addWidget(no_videos_label)
+            return
 
         for row, video_filename in enumerate(self.selected_videos):
             path = os.path.join(self.main_ui.load_directory.text(), video_filename)

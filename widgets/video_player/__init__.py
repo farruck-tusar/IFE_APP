@@ -6,7 +6,6 @@ from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QGraphicsVideoItem
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QGraphicsView, QGraphicsScene
 
-from application import Settings
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 from widgets.video_player.yolo_detection import YoloDetection
 

@@ -26,7 +26,7 @@ class Ui_videoPlayer(object):
     def setupUi(self, videoPlayer):
         if not videoPlayer.objectName():
             videoPlayer.setObjectName(u"videoPlayer")
-        videoPlayer.resize(1040, 850)
+        videoPlayer.resize(1750, 1305)
         videoPlayer.setStyleSheet(u"#videoPlayer QPushButton, QLineEdit, QSpinBox, QDoubleSpinBox, QDateEdit, QComboBox {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;\n"
@@ -50,7 +50,7 @@ class Ui_videoPlayer(object):
         self.player = QFrame(videoPlayer)
         self.player.setObjectName(u"player")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(7)
+        sizePolicy.setHorizontalStretch(8)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.player.sizePolicy().hasHeightForWidth())
         self.player.setSizePolicy(sizePolicy)
@@ -80,7 +80,7 @@ class Ui_videoPlayer(object):
         self.frame_video.setObjectName(u"frame_video")
         sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(7)
+        sizePolicy2.setVerticalStretch(1)
         sizePolicy2.setHeightForWidth(self.frame_video.sizePolicy().hasHeightForWidth())
         self.frame_video.setSizePolicy(sizePolicy2)
         self.frame_video.setFrameShape(QFrame.StyledPanel)
@@ -91,7 +91,7 @@ class Ui_videoPlayer(object):
         self.frame_player = QFrame(self.frame_video)
         self.frame_player.setObjectName(u"frame_player")
         sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(9)
+        sizePolicy3.setHorizontalStretch(1)
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.frame_player.sizePolicy().hasHeightForWidth())
         self.frame_player.setSizePolicy(sizePolicy3)
@@ -103,7 +103,7 @@ class Ui_videoPlayer(object):
         self.frame_zoom = QFrame(self.frame_video)
         self.frame_zoom.setObjectName(u"frame_zoom")
         sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(1)
+        sizePolicy4.setHorizontalStretch(0)
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.frame_zoom.sizePolicy().hasHeightForWidth())
         self.frame_zoom.setSizePolicy(sizePolicy4)
@@ -130,39 +130,39 @@ class Ui_videoPlayer(object):
 
         self.frame_time_heatmap = QFrame(self.player)
         self.frame_time_heatmap.setObjectName(u"frame_time_heatmap")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(2)
-        sizePolicy5.setHeightForWidth(self.frame_time_heatmap.sizePolicy().hasHeightForWidth())
-        self.frame_time_heatmap.setSizePolicy(sizePolicy5)
+        sizePolicy4.setHeightForWidth(self.frame_time_heatmap.sizePolicy().hasHeightForWidth())
+        self.frame_time_heatmap.setSizePolicy(sizePolicy4)
         self.frame_time_heatmap.setFrameShape(QFrame.StyledPanel)
         self.frame_time_heatmap.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_time_heatmap)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.frame_time = QFrame(self.frame_time_heatmap)
         self.frame_time.setObjectName(u"frame_time")
+        self.frame_time.setAutoFillBackground(False)
         self.frame_time.setFrameShape(QFrame.StyledPanel)
         self.frame_time.setFrameShadow(QFrame.Raised)
+        self.frame_time.setLineWidth(1)
+        self.frame_time.setMidLineWidth(0)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_time)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.slider_time = QSlider(self.frame_time)
         self.slider_time.setObjectName(u"slider_time")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.slider_time.sizePolicy().hasHeightForWidth())
-        self.slider_time.setSizePolicy(sizePolicy6)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.slider_time.sizePolicy().hasHeightForWidth())
+        self.slider_time.setSizePolicy(sizePolicy5)
         self.slider_time.setOrientation(Qt.Horizontal)
 
         self.horizontalLayout_3.addWidget(self.slider_time)
 
         self.label_time = QLabel(self.frame_time)
         self.label_time.setObjectName(u"label_time")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.label_time.sizePolicy().hasHeightForWidth())
-        self.label_time.setSizePolicy(sizePolicy7)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.label_time.sizePolicy().hasHeightForWidth())
+        self.label_time.setSizePolicy(sizePolicy6)
         self.label_time.setMinimumSize(QSize(200, 0))
 
         self.horizontalLayout_3.addWidget(self.label_time, 0, Qt.AlignVCenter)
@@ -178,16 +178,16 @@ class Ui_videoPlayer(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.slider_heatmap = QSlider(self.frame_heatmap)
         self.slider_heatmap.setObjectName(u"slider_heatmap")
-        sizePolicy6.setHeightForWidth(self.slider_heatmap.sizePolicy().hasHeightForWidth())
-        self.slider_heatmap.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.slider_heatmap.sizePolicy().hasHeightForWidth())
+        self.slider_heatmap.setSizePolicy(sizePolicy5)
         self.slider_heatmap.setOrientation(Qt.Horizontal)
 
         self.horizontalLayout_4.addWidget(self.slider_heatmap)
 
         self.label_heatmap = QLabel(self.frame_heatmap)
         self.label_heatmap.setObjectName(u"label_heatmap")
-        sizePolicy7.setHeightForWidth(self.label_heatmap.sizePolicy().hasHeightForWidth())
-        self.label_heatmap.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.label_heatmap.sizePolicy().hasHeightForWidth())
+        self.label_heatmap.setSizePolicy(sizePolicy6)
         self.label_heatmap.setMinimumSize(QSize(200, 0))
 
         self.horizontalLayout_4.addWidget(self.label_heatmap, 0, Qt.AlignVCenter)
@@ -200,11 +200,8 @@ class Ui_videoPlayer(object):
 
         self.frame_nav_buttons = QFrame(self.player)
         self.frame_nav_buttons.setObjectName(u"frame_nav_buttons")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(1)
-        sizePolicy8.setHeightForWidth(self.frame_nav_buttons.sizePolicy().hasHeightForWidth())
-        self.frame_nav_buttons.setSizePolicy(sizePolicy8)
+        sizePolicy4.setHeightForWidth(self.frame_nav_buttons.sizePolicy().hasHeightForWidth())
+        self.frame_nav_buttons.setSizePolicy(sizePolicy4)
         self.frame_nav_buttons.setFrameShape(QFrame.StyledPanel)
         self.frame_nav_buttons.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.frame_nav_buttons)
@@ -227,11 +224,11 @@ class Ui_videoPlayer(object):
 
         self.spin_speed = QDoubleSpinBox(self.frame_nav_buttons)
         self.spin_speed.setObjectName(u"spin_speed")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.spin_speed.sizePolicy().hasHeightForWidth())
-        self.spin_speed.setSizePolicy(sizePolicy9)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.spin_speed.sizePolicy().hasHeightForWidth())
+        self.spin_speed.setSizePolicy(sizePolicy7)
 
         self.horizontalLayout.addWidget(self.spin_speed)
 
@@ -253,11 +250,11 @@ class Ui_videoPlayer(object):
 
         self.sidebar = QFrame(videoPlayer)
         self.sidebar.setObjectName(u"sidebar")
-        sizePolicy10 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy10.setHorizontalStretch(3)
-        sizePolicy10.setVerticalStretch(0)
-        sizePolicy10.setHeightForWidth(self.sidebar.sizePolicy().hasHeightForWidth())
-        self.sidebar.setSizePolicy(sizePolicy10)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy8.setHorizontalStretch(2)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.sidebar.sizePolicy().hasHeightForWidth())
+        self.sidebar.setSizePolicy(sizePolicy8)
         self.sidebar.setStyleSheet(u"background-color: rgb(33, 37, 43);")
         self.sidebar.setFrameShape(QFrame.StyledPanel)
         self.sidebar.setFrameShadow(QFrame.Raised)
@@ -269,7 +266,7 @@ class Ui_videoPlayer(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 313, 944))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 321, 1275))
         self.verticalLayout1 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout1.setSpacing(6)
         self.verticalLayout1.setObjectName(u"verticalLayout1")
@@ -302,11 +299,8 @@ class Ui_videoPlayer(object):
 
         self.label_record_date = QLabel(self.groupBox_General)
         self.label_record_date.setObjectName(u"label_record_date")
-        sizePolicy11 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy11.setHorizontalStretch(0)
-        sizePolicy11.setVerticalStretch(0)
-        sizePolicy11.setHeightForWidth(self.label_record_date.sizePolicy().hasHeightForWidth())
-        self.label_record_date.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_record_date.sizePolicy().hasHeightForWidth())
+        self.label_record_date.setSizePolicy(sizePolicy4)
         self.label_record_date.setMinimumSize(QSize(0, 0))
         self.label_record_date.setMaximumSize(QSize(16777215, 16777215))
 
@@ -314,8 +308,8 @@ class Ui_videoPlayer(object):
 
         self.dateEdit_record_date = QDateEdit(self.groupBox_General)
         self.dateEdit_record_date.setObjectName(u"dateEdit_record_date")
-        sizePolicy11.setHeightForWidth(self.dateEdit_record_date.sizePolicy().hasHeightForWidth())
-        self.dateEdit_record_date.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.dateEdit_record_date.sizePolicy().hasHeightForWidth())
+        self.dateEdit_record_date.setSizePolicy(sizePolicy4)
         self.dateEdit_record_date.setMinimumSize(QSize(0, 0))
         self.dateEdit_record_date.setMaximumSize(QSize(16777215, 16777215))
         self.dateEdit_record_date.setLocale(QLocale(QLocale.English, QLocale.World))
@@ -324,8 +318,8 @@ class Ui_videoPlayer(object):
 
         self.label_com_name = QLabel(self.groupBox_General)
         self.label_com_name.setObjectName(u"label_com_name")
-        sizePolicy11.setHeightForWidth(self.label_com_name.sizePolicy().hasHeightForWidth())
-        self.label_com_name.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_com_name.sizePolicy().hasHeightForWidth())
+        self.label_com_name.setSizePolicy(sizePolicy4)
         self.label_com_name.setMinimumSize(QSize(0, 0))
         self.label_com_name.setMaximumSize(QSize(16777215, 16777215))
 
@@ -333,8 +327,8 @@ class Ui_videoPlayer(object):
 
         self.lineEdit_com_name = QLineEdit(self.groupBox_General)
         self.lineEdit_com_name.setObjectName(u"lineEdit_com_name")
-        sizePolicy11.setHeightForWidth(self.lineEdit_com_name.sizePolicy().hasHeightForWidth())
-        self.lineEdit_com_name.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.lineEdit_com_name.sizePolicy().hasHeightForWidth())
+        self.lineEdit_com_name.setSizePolicy(sizePolicy4)
         self.lineEdit_com_name.setMinimumSize(QSize(0, 0))
         self.lineEdit_com_name.setMaximumSize(QSize(16777215, 16777215))
 
@@ -342,8 +336,8 @@ class Ui_videoPlayer(object):
 
         self.label_bra_name = QLabel(self.groupBox_General)
         self.label_bra_name.setObjectName(u"label_bra_name")
-        sizePolicy11.setHeightForWidth(self.label_bra_name.sizePolicy().hasHeightForWidth())
-        self.label_bra_name.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_bra_name.sizePolicy().hasHeightForWidth())
+        self.label_bra_name.setSizePolicy(sizePolicy4)
         self.label_bra_name.setMinimumSize(QSize(0, 0))
         self.label_bra_name.setMaximumSize(QSize(16777215, 16777215))
 
@@ -351,8 +345,8 @@ class Ui_videoPlayer(object):
 
         self.comboBox_bra_name = QComboBox(self.groupBox_General)
         self.comboBox_bra_name.setObjectName(u"comboBox_bra_name")
-        sizePolicy11.setHeightForWidth(self.comboBox_bra_name.sizePolicy().hasHeightForWidth())
-        self.comboBox_bra_name.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.comboBox_bra_name.sizePolicy().hasHeightForWidth())
+        self.comboBox_bra_name.setSizePolicy(sizePolicy4)
         self.comboBox_bra_name.setMinimumSize(QSize(0, 0))
         self.comboBox_bra_name.setMaximumSize(QSize(16777215, 16777215))
 
@@ -360,8 +354,8 @@ class Ui_videoPlayer(object):
 
         self.label_pl_name = QLabel(self.groupBox_General)
         self.label_pl_name.setObjectName(u"label_pl_name")
-        sizePolicy11.setHeightForWidth(self.label_pl_name.sizePolicy().hasHeightForWidth())
-        self.label_pl_name.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_pl_name.sizePolicy().hasHeightForWidth())
+        self.label_pl_name.setSizePolicy(sizePolicy4)
         self.label_pl_name.setMinimumSize(QSize(0, 0))
         self.label_pl_name.setMaximumSize(QSize(16777215, 16777215))
 
@@ -369,8 +363,8 @@ class Ui_videoPlayer(object):
 
         self.lineEdit_pl_name = QLineEdit(self.groupBox_General)
         self.lineEdit_pl_name.setObjectName(u"lineEdit_pl_name")
-        sizePolicy11.setHeightForWidth(self.lineEdit_pl_name.sizePolicy().hasHeightForWidth())
-        self.lineEdit_pl_name.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.lineEdit_pl_name.sizePolicy().hasHeightForWidth())
+        self.lineEdit_pl_name.setSizePolicy(sizePolicy4)
         self.lineEdit_pl_name.setMinimumSize(QSize(0, 0))
         self.lineEdit_pl_name.setMaximumSize(QSize(16777215, 16777215))
 
@@ -378,8 +372,8 @@ class Ui_videoPlayer(object):
 
         self.label_pp_num = QLabel(self.groupBox_General)
         self.label_pp_num.setObjectName(u"label_pp_num")
-        sizePolicy11.setHeightForWidth(self.label_pp_num.sizePolicy().hasHeightForWidth())
-        self.label_pp_num.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_pp_num.sizePolicy().hasHeightForWidth())
+        self.label_pp_num.setSizePolicy(sizePolicy4)
         self.label_pp_num.setMinimumSize(QSize(0, 0))
         self.label_pp_num.setMaximumSize(QSize(16777215, 16777215))
 
@@ -387,8 +381,8 @@ class Ui_videoPlayer(object):
 
         self.spinBox_pp_num = QSpinBox(self.groupBox_General)
         self.spinBox_pp_num.setObjectName(u"spinBox_pp_num")
-        sizePolicy11.setHeightForWidth(self.spinBox_pp_num.sizePolicy().hasHeightForWidth())
-        self.spinBox_pp_num.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.spinBox_pp_num.sizePolicy().hasHeightForWidth())
+        self.spinBox_pp_num.setSizePolicy(sizePolicy4)
         self.spinBox_pp_num.setMinimumSize(QSize(0, 0))
         self.spinBox_pp_num.setMaximumSize(QSize(16777215, 16777215))
         self.spinBox_pp_num.setMaximum(999)
@@ -397,8 +391,8 @@ class Ui_videoPlayer(object):
 
         self.label_location_lon = QLabel(self.groupBox_General)
         self.label_location_lon.setObjectName(u"label_location_lon")
-        sizePolicy11.setHeightForWidth(self.label_location_lon.sizePolicy().hasHeightForWidth())
-        self.label_location_lon.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_location_lon.sizePolicy().hasHeightForWidth())
+        self.label_location_lon.setSizePolicy(sizePolicy4)
         self.label_location_lon.setMinimumSize(QSize(0, 0))
         self.label_location_lon.setMaximumSize(QSize(16777215, 16777215))
 
@@ -409,8 +403,8 @@ class Ui_videoPlayer(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.lineEdit_location_lon = QLineEdit(self.groupBox_General)
         self.lineEdit_location_lon.setObjectName(u"lineEdit_location_lon")
-        sizePolicy11.setHeightForWidth(self.lineEdit_location_lon.sizePolicy().hasHeightForWidth())
-        self.lineEdit_location_lon.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.lineEdit_location_lon.sizePolicy().hasHeightForWidth())
+        self.lineEdit_location_lon.setSizePolicy(sizePolicy4)
         self.lineEdit_location_lon.setMinimumSize(QSize(0, 0))
         self.lineEdit_location_lon.setMaximumSize(QSize(16777215, 16777215))
 
@@ -418,8 +412,8 @@ class Ui_videoPlayer(object):
 
         self.lineEdit_location_lat = QLineEdit(self.groupBox_General)
         self.lineEdit_location_lat.setObjectName(u"lineEdit_location_lat")
-        sizePolicy11.setHeightForWidth(self.lineEdit_location_lat.sizePolicy().hasHeightForWidth())
-        self.lineEdit_location_lat.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.lineEdit_location_lat.sizePolicy().hasHeightForWidth())
+        self.lineEdit_location_lat.setSizePolicy(sizePolicy4)
         self.lineEdit_location_lat.setMinimumSize(QSize(0, 0))
         self.lineEdit_location_lat.setMaximumSize(QSize(16777215, 16777215))
 
@@ -430,8 +424,8 @@ class Ui_videoPlayer(object):
 
         self.label_pl_level = QLabel(self.groupBox_General)
         self.label_pl_level.setObjectName(u"label_pl_level")
-        sizePolicy11.setHeightForWidth(self.label_pl_level.sizePolicy().hasHeightForWidth())
-        self.label_pl_level.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_pl_level.sizePolicy().hasHeightForWidth())
+        self.label_pl_level.setSizePolicy(sizePolicy4)
         self.label_pl_level.setMinimumSize(QSize(0, 0))
         self.label_pl_level.setMaximumSize(QSize(16777215, 16777215))
 
@@ -439,8 +433,8 @@ class Ui_videoPlayer(object):
 
         self.comboBox_pl_level = QComboBox(self.groupBox_General)
         self.comboBox_pl_level.setObjectName(u"comboBox_pl_level")
-        sizePolicy11.setHeightForWidth(self.comboBox_pl_level.sizePolicy().hasHeightForWidth())
-        self.comboBox_pl_level.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.comboBox_pl_level.sizePolicy().hasHeightForWidth())
+        self.comboBox_pl_level.setSizePolicy(sizePolicy4)
         self.comboBox_pl_level.setMinimumSize(QSize(0, 0))
         self.comboBox_pl_level.setMaximumSize(QSize(16777215, 16777215))
 
@@ -448,8 +442,8 @@ class Ui_videoPlayer(object):
 
         self.label_pl_cir_type = QLabel(self.groupBox_General)
         self.label_pl_cir_type.setObjectName(u"label_pl_cir_type")
-        sizePolicy11.setHeightForWidth(self.label_pl_cir_type.sizePolicy().hasHeightForWidth())
-        self.label_pl_cir_type.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_pl_cir_type.sizePolicy().hasHeightForWidth())
+        self.label_pl_cir_type.setSizePolicy(sizePolicy4)
         self.label_pl_cir_type.setMinimumSize(QSize(0, 0))
         self.label_pl_cir_type.setMaximumSize(QSize(16777215, 16777215))
 
@@ -457,8 +451,8 @@ class Ui_videoPlayer(object):
 
         self.comboBox_pl_cir_type = QComboBox(self.groupBox_General)
         self.comboBox_pl_cir_type.setObjectName(u"comboBox_pl_cir_type")
-        sizePolicy11.setHeightForWidth(self.comboBox_pl_cir_type.sizePolicy().hasHeightForWidth())
-        self.comboBox_pl_cir_type.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.comboBox_pl_cir_type.sizePolicy().hasHeightForWidth())
+        self.comboBox_pl_cir_type.setSizePolicy(sizePolicy4)
         self.comboBox_pl_cir_type.setMinimumSize(QSize(0, 0))
         self.comboBox_pl_cir_type.setMaximumSize(QSize(16777215, 16777215))
 
@@ -466,8 +460,8 @@ class Ui_videoPlayer(object):
 
         self.label_pp_type = QLabel(self.groupBox_General)
         self.label_pp_type.setObjectName(u"label_pp_type")
-        sizePolicy11.setHeightForWidth(self.label_pp_type.sizePolicy().hasHeightForWidth())
-        self.label_pp_type.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_pp_type.sizePolicy().hasHeightForWidth())
+        self.label_pp_type.setSizePolicy(sizePolicy4)
         self.label_pp_type.setMinimumSize(QSize(0, 0))
         self.label_pp_type.setMaximumSize(QSize(16777215, 16777215))
 
@@ -475,8 +469,8 @@ class Ui_videoPlayer(object):
 
         self.comboBox_pp_type = QComboBox(self.groupBox_General)
         self.comboBox_pp_type.setObjectName(u"comboBox_pp_type")
-        sizePolicy11.setHeightForWidth(self.comboBox_pp_type.sizePolicy().hasHeightForWidth())
-        self.comboBox_pp_type.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.comboBox_pp_type.sizePolicy().hasHeightForWidth())
+        self.comboBox_pp_type.setSizePolicy(sizePolicy4)
         self.comboBox_pp_type.setMinimumSize(QSize(0, 0))
         self.comboBox_pp_type.setMaximumSize(QSize(16777215, 16777215))
 
@@ -484,8 +478,8 @@ class Ui_videoPlayer(object):
 
         self.label_pp_model = QLabel(self.groupBox_General)
         self.label_pp_model.setObjectName(u"label_pp_model")
-        sizePolicy11.setHeightForWidth(self.label_pp_model.sizePolicy().hasHeightForWidth())
-        self.label_pp_model.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_pp_model.sizePolicy().hasHeightForWidth())
+        self.label_pp_model.setSizePolicy(sizePolicy4)
         self.label_pp_model.setMinimumSize(QSize(0, 0))
         self.label_pp_model.setMaximumSize(QSize(16777215, 16777215))
 
@@ -493,8 +487,8 @@ class Ui_videoPlayer(object):
 
         self.comboBox_pp_model = QComboBox(self.groupBox_General)
         self.comboBox_pp_model.setObjectName(u"comboBox_pp_model")
-        sizePolicy11.setHeightForWidth(self.comboBox_pp_model.sizePolicy().hasHeightForWidth())
-        self.comboBox_pp_model.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.comboBox_pp_model.sizePolicy().hasHeightForWidth())
+        self.comboBox_pp_model.setSizePolicy(sizePolicy4)
         self.comboBox_pp_model.setMinimumSize(QSize(0, 0))
         self.comboBox_pp_model.setMaximumSize(QSize(16777215, 16777215))
 
@@ -502,8 +496,8 @@ class Ui_videoPlayer(object):
 
         self.label_num_inst_str = QLabel(self.groupBox_General)
         self.label_num_inst_str.setObjectName(u"label_num_inst_str")
-        sizePolicy11.setHeightForWidth(self.label_num_inst_str.sizePolicy().hasHeightForWidth())
-        self.label_num_inst_str.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_num_inst_str.sizePolicy().hasHeightForWidth())
+        self.label_num_inst_str.setSizePolicy(sizePolicy4)
         self.label_num_inst_str.setMinimumSize(QSize(0, 0))
         self.label_num_inst_str.setMaximumSize(QSize(16777215, 16777215))
 
@@ -511,8 +505,8 @@ class Ui_videoPlayer(object):
 
         self.spinBox_num_inst_str = QSpinBox(self.groupBox_General)
         self.spinBox_num_inst_str.setObjectName(u"spinBox_num_inst_str")
-        sizePolicy11.setHeightForWidth(self.spinBox_num_inst_str.sizePolicy().hasHeightForWidth())
-        self.spinBox_num_inst_str.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.spinBox_num_inst_str.sizePolicy().hasHeightForWidth())
+        self.spinBox_num_inst_str.setSizePolicy(sizePolicy4)
         self.spinBox_num_inst_str.setMinimumSize(QSize(0, 0))
         self.spinBox_num_inst_str.setMaximumSize(QSize(16777215, 16777215))
         self.spinBox_num_inst_str.setMaximum(30)
@@ -526,8 +520,8 @@ class Ui_videoPlayer(object):
         self.layout_G2.setObjectName(u"layout_G2")
         self.pushButton_saveG = QPushButton(self.groupBox_General)
         self.pushButton_saveG.setObjectName(u"pushButton_saveG")
-        sizePolicy11.setHeightForWidth(self.pushButton_saveG.sizePolicy().hasHeightForWidth())
-        self.pushButton_saveG.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.pushButton_saveG.sizePolicy().hasHeightForWidth())
+        self.pushButton_saveG.setSizePolicy(sizePolicy4)
         self.pushButton_saveG.setMinimumSize(QSize(0, 23))
         self.pushButton_saveG.setMaximumSize(QSize(16777215, 23))
 
@@ -541,11 +535,11 @@ class Ui_videoPlayer(object):
 
         self.groupBox_Damage = QGroupBox(self.scrollAreaWidgetContents_2)
         self.groupBox_Damage.setObjectName(u"groupBox_Damage")
-        sizePolicy12 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
-        sizePolicy12.setHorizontalStretch(0)
-        sizePolicy12.setVerticalStretch(0)
-        sizePolicy12.setHeightForWidth(self.groupBox_Damage.sizePolicy().hasHeightForWidth())
-        self.groupBox_Damage.setSizePolicy(sizePolicy12)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.groupBox_Damage.sizePolicy().hasHeightForWidth())
+        self.groupBox_Damage.setSizePolicy(sizePolicy9)
         self.groupBox_Damage.setFont(font)
         self.verticalLayout_6 = QVBoxLayout(self.groupBox_Damage)
         self.verticalLayout_6.setSpacing(3)
@@ -567,15 +561,15 @@ class Ui_videoPlayer(object):
 
         self.label_process_date = QLabel(self.groupBox_Damage)
         self.label_process_date.setObjectName(u"label_process_date")
-        sizePolicy11.setHeightForWidth(self.label_process_date.sizePolicy().hasHeightForWidth())
-        self.label_process_date.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.label_process_date.sizePolicy().hasHeightForWidth())
+        self.label_process_date.setSizePolicy(sizePolicy4)
 
         self.layout_D1.setWidget(1, QFormLayout.LabelRole, self.label_process_date)
 
         self.dateEdit_process_date = QDateEdit(self.groupBox_Damage)
         self.dateEdit_process_date.setObjectName(u"dateEdit_process_date")
-        sizePolicy11.setHeightForWidth(self.dateEdit_process_date.sizePolicy().hasHeightForWidth())
-        self.dateEdit_process_date.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.dateEdit_process_date.sizePolicy().hasHeightForWidth())
+        self.dateEdit_process_date.setSizePolicy(sizePolicy4)
 
         self.layout_D1.setWidget(1, QFormLayout.FieldRole, self.dateEdit_process_date)
 
@@ -605,8 +599,8 @@ class Ui_videoPlayer(object):
         __qtreewidgetitem.setTextAlignment(0, Qt.AlignLeading|Qt.AlignVCenter);
         self.treeWidget.setHeaderItem(__qtreewidgetitem)
         self.treeWidget.setObjectName(u"treeWidget")
-        sizePolicy6.setHeightForWidth(self.treeWidget.sizePolicy().hasHeightForWidth())
-        self.treeWidget.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.treeWidget.sizePolicy().hasHeightForWidth())
+        self.treeWidget.setSizePolicy(sizePolicy5)
 
         self.verticalLayout_6.addWidget(self.treeWidget)
 
@@ -664,8 +658,8 @@ class Ui_videoPlayer(object):
         self.layout_D3.setObjectName(u"layout_D3")
         self.pushButton_openDirD = QPushButton(self.groupBox_Damage)
         self.pushButton_openDirD.setObjectName(u"pushButton_openDirD")
-        sizePolicy11.setHeightForWidth(self.pushButton_openDirD.sizePolicy().hasHeightForWidth())
-        self.pushButton_openDirD.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.pushButton_openDirD.sizePolicy().hasHeightForWidth())
+        self.pushButton_openDirD.setSizePolicy(sizePolicy4)
         self.pushButton_openDirD.setMinimumSize(QSize(40, 23))
         self.pushButton_openDirD.setMaximumSize(QSize(16777215, 23))
 
@@ -673,8 +667,8 @@ class Ui_videoPlayer(object):
 
         self.pushButton_saveD = QPushButton(self.groupBox_Damage)
         self.pushButton_saveD.setObjectName(u"pushButton_saveD")
-        sizePolicy11.setHeightForWidth(self.pushButton_saveD.sizePolicy().hasHeightForWidth())
-        self.pushButton_saveD.setSizePolicy(sizePolicy11)
+        sizePolicy4.setHeightForWidth(self.pushButton_saveD.sizePolicy().hasHeightForWidth())
+        self.pushButton_saveD.setSizePolicy(sizePolicy4)
         self.pushButton_saveD.setMinimumSize(QSize(40, 23))
         self.pushButton_saveD.setMaximumSize(QSize(16777215, 23))
 

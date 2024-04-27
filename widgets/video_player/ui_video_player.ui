@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1040</width>
-    <height>850</height>
+    <width>1750</width>
+    <height>1305</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,7 +49,7 @@
     <widget class="QFrame" name="player">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>7</horstretch>
+       <horstretch>8</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
@@ -104,7 +104,7 @@ padding: 5px;</string>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
-          <verstretch>7</verstretch>
+          <verstretch>1</verstretch>
          </sizepolicy>
         </property>
         <property name="frameShape">
@@ -130,7 +130,7 @@ padding: 5px;</string>
           <widget class="QFrame" name="frame_player">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>9</horstretch>
+             <horstretch>1</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
@@ -146,7 +146,7 @@ padding: 5px;</string>
           <widget class="QFrame" name="frame_zoom">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>1</horstretch>
+             <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
@@ -182,7 +182,7 @@ padding: 5px;</string>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
-          <verstretch>2</verstretch>
+          <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="frameShape">
@@ -194,11 +194,20 @@ padding: 5px;</string>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="QFrame" name="frame_time">
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
+           </property>
+           <property name="lineWidth">
+            <number>1</number>
+           </property>
+           <property name="midLineWidth">
+            <number>0</number>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
@@ -288,7 +297,7 @@ padding: 5px;</string>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
-          <verstretch>1</verstretch>
+          <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="frameShape">
@@ -350,7 +359,7 @@ padding: 5px;</string>
     <widget class="QFrame" name="sidebar">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>3</horstretch>
+       <horstretch>2</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
@@ -377,8 +386,8 @@ padding: 5px;</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>313</width>
-           <height>944</height>
+           <width>321</width>
+           <height>1275</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout1">

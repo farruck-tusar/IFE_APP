@@ -4,7 +4,7 @@ from PySide6.QtCore import Slot, QTimer, Qt
 from PySide6.QtGui import QIcon
 from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import QGraphicsVideoItem
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QGraphicsView, QGraphicsScene, QSizePolicy
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QGraphicsView, QGraphicsScene, QSizePolicy, QMessageBox
 
 from widgets.video_player.ui_video_player import Ui_videoPlayer
 from widgets.models.yolo_detection import YoloDetection
@@ -78,9 +78,15 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         try:
             if selected_option == "YOLOv5 Model":
                 print(selected_option)
+                # Show a dialog indicating the processing is ongoing
+                QMessageBox.information(self, "Processing Video",
+                                        "Please wait while YOLOv5 detection is in progress...")
                 YoloDetection.yolov5_detect(video_path)
             elif selected_option == "YOLOv8 Model":
                 print(selected_option)
+                # Show a dialog indicating the processing is ongoing
+                QMessageBox.information(self, "Processing Video",
+                                        "Please wait while YOLOv8 detection is in progress...")
                 YoloDetection.yolov8_detect(video_path)
             else:
                 print("Burn Mark Detection")

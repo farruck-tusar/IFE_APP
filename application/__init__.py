@@ -28,7 +28,7 @@ class App(UiBeautify):
         self.logging()
 
         # SHOW APP UI
-        self.show()
+        self.showFullScreen()
 
         # SET CUSTOM THEME
         if Settings.ENABLE_CUSTOM_THEME:

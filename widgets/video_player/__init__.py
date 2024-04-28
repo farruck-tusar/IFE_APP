@@ -22,12 +22,12 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         super().__init__(main_ui)
         self.ui = Ui_videoPlayer()
         self.ui.setupUi(self)
+        self.ui.btn_back.clicked.connect(lambda: main_ui.stackedWidget.setCurrentWidget(main_ui.page_loadVideos))
 
         self.setup_ui_elements(video_path)
         self.setup_video_player(video_path)
 
     def setup_ui_elements(self, video_path):
-        self.ui.btn_back.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_loadVideos))
         self.ui.slider_zoom.valueChanged.connect(self.update_zoom)
         self.ui.label_zoom.setText("1.00x")
         self.ui.combo_filter.addItems(["YOLOv5 Model", "YOLOv8 Model", "Burn Mark Detection"])

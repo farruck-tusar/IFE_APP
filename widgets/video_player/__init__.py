@@ -42,11 +42,11 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
         self._video_view = VideoGraphicsView(self.ui.frame_player)
         self._video_view.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self._video_view.setAlignment(Qt.AlignCenter)
-        self._video_view.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self._video_view.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.ui.frame_player.layout().addWidget(self._video_view)
 
         self._video_item = QGraphicsVideoItem()
+        self._video_item.setAspectRatioMode(Qt.IgnoreAspectRatio)
+        self._video_view.fitInView(self._video_item, Qt.KeepAspectRatio)
         self._video_view.setScene(QGraphicsScene(self))
         self._video_view.scene().addItem(self._video_item)
 

@@ -1,4 +1,5 @@
 import sys
+import threading
 
 from PySide6.QtCore import Slot, QTimer, Qt
 from PySide6.QtGui import QIcon
@@ -81,13 +82,13 @@ class VideoPlayer(Ui_videoPlayer, QWidget):
                 # Show a dialog indicating the processing is ongoing
                 QMessageBox.information(self, "Processing Video",
                                         "Please wait while YOLOv5 detection is in progress...")
-                YoloDetection.yolov5_detect(video_path)
+                threading.Thread(target=YoloDetection.yolov5_detect, args=(video_path,)).start()
             elif selected_option == "YOLOv8 Model":
                 print(selected_option)
                 # Show a dialog indicating the processing is ongoing
                 QMessageBox.information(self, "Processing Video",
                                         "Please wait while YOLOv8 detection is in progress...")
-                YoloDetection.yolov8_detect(video_path)
+                threading.Thread(target=YoloDetection.yolov8_detect, args=(video_path,)).start()
             else:
                 print("Burn Mark Detection")
         except Exception as e:
